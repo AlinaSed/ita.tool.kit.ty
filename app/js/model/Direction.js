@@ -1,7 +1,7 @@
 'use strict';
 
 class Direction {
-    constructor (name) {  // UI, Java...
+    constructor (name) { 
         this.name = name;
         this.testList = [];
         this.filterList = [];
@@ -11,7 +11,7 @@ class Direction {
         this.testList.push(new Test(name));
     }
 
-    addFilter (tests, action, condition) {
-        this.filterList.push(new Filter(tests, action, condition));
+    addFilter (tests, action, condition, grade) {
+        this.filterList.push(new Filter(tests, action, condition, grade));
     }
 }
