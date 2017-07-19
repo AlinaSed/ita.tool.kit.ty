@@ -1,4 +1,9 @@
 {
+  "name": "ITA.tool.kit.ty",
+  "version": "1.0.0",
+  "scripts": {
+  	"test": "karma start karma.conf.js"
+  },
   "devDependencies": {
     "eslint": "^4.2.0",
     "jasmine-core": "^2.6.4",

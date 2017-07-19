@@ -2,7 +2,7 @@
 // Generated on Mon Jul 17 2017 20:11:40 GMT+0300 (Финляндия (лето))
 
 module.exports = function(config) {
-  config.set({
+    config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -16,7 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '*.js',
-      '*.spec.js'
+      '*.spec.js',
+      'app/js/tests/test.spec.js'
     ],
 
 
