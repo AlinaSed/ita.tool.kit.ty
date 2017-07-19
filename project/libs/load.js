@@ -1,0 +1,1 @@
+setTimeout(function(){$('header').fadeOut(1000)},2000); 
