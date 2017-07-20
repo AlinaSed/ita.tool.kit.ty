@@ -5,13 +5,13 @@ class Mediator {
         this.channels = {};
     }
 
-    pub (channel, data) {
+    publish (channel, data) {
         if (this.channels[channel]) {
             this.channels[channel].forEach((fn) => fn(data));
         }
     }
 
-    sub (channel, fn) {
+    subscribe (channel, fn) {
         if (!this.channels[channel]) {
             this.channels[channel] = [];
         }
