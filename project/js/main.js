@@ -18,6 +18,7 @@ function init () {
     let app = new App();
 
     lounchTestData(app.groupList, app.settings);
+	app.start();
 }
 
 function lounchTestData (groupList, settings) {

@@ -11,6 +11,7 @@ export class App {
     }
 
     start () {
-    	return new GroupController(this.groupList); //* name is correct ?
+        let groupController = new GroupController();
+        groupController.render(this.groupList);
     }
 }
