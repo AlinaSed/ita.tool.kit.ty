@@ -6,14 +6,14 @@ export class SettingsController {
         this.directionNames;
     }
 
-    directionNames () {
+    getDirectionNames () {
         this.direction.forEach((item)=>{
             let names.push[item.name]
         });
         return names;
     }
 
-    directionTests (name) {
+    getDirectionTests (name) {
         this.direction.forEach((item)=>{
             if (item.name !== name) continue;
             let result = item.testList;
