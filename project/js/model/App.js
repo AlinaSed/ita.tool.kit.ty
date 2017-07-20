@@ -2,15 +2,15 @@
 
 export class App {
     constructor () {
-        this.groups = [];
+        this.groupLst = [];
         this.settings = new Settings();
     }
 
     addGroup () {
-        this.groups.push(new Group());
+        this.groupList.push(new Group());
     }
 
     start () {
-    	return new GroupController(this.groups); //* name is correct ?
+    	return new GroupController(this.groupList); //* name is correct ?
     }
 }
