@@ -1,9 +1,8 @@
 'use strict';
 
-export class GroupView {
-	
-	get selectors(){
-        return { groupContainer : '#group-container'};
+class GroupView {
+	get selectors ( ){
+        return {groupContainer : '#group-container'};
     }
 
     render (groupName) {

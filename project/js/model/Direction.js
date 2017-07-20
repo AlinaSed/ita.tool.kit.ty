@@ -1,6 +1,6 @@
 'use strict';
 
-export class Direction {
+class Direction {
     constructor (name) { 
         this.name = name;
         this.testList = [];

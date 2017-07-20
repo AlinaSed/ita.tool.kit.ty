@@ -1,7 +1,6 @@
 'use strict';
 
-export class GroupController {
-
+class GroupController {
     render (groups) {
         this.groups = groups;
         this.showGpoup();

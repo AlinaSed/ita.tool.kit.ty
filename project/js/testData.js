@@ -14,6 +14,7 @@ directionListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
@@ -22,20 +23,24 @@ directionListTest = [
                     "en3",
                     "en4"
                 ],
+                
                 "action": "average",
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"
                 ],
+
                 "action": "sum",
                 "condition": "greater",
                 "grade": 75
             }
         ]
-    },    
+    },
+
     {
         "name": "Go",
         "testList": [            
@@ -46,26 +51,31 @@ directionListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
                     "en1", 
                     "en2"
                 ],
+
                 "action": "average",
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"
                 ],
+
                 "action": "sum",
                 "condition": "greater",
                 "grade": 60
             }
         ]
-    },    
+    },
+
     {
         "name": "Php",
         "testList": [            
@@ -76,20 +86,24 @@ directionListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
                     "en1", 
                     "en2"
                 ],
+
                 "action": "average",
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"
                 ],
+
                 "action": "sum",
                 "condition": "greater",
                 "grade": 80
@@ -110,6 +124,7 @@ groupListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
@@ -118,20 +133,24 @@ groupListTest = [
                     "en3",
                     "en4"
                 ],
+
                 "action": "average",
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"
                 ],
+
                 "action": "sum",
                 "condition": "greater",
                 "grade": 75
             }
         ]
     },
+
     {
         "name": "Dp-112-go",
         "direction": "UI",
@@ -143,6 +162,7 @@ groupListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
@@ -153,6 +173,7 @@ groupListTest = [
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"
@@ -163,6 +184,7 @@ groupListTest = [
             }
         ]
     },
+
     {
         "name": "Dp-120-php",
         "direction": "UI",
@@ -174,16 +196,19 @@ groupListTest = [
             "tech",
             "esse"
         ],
+
         "filterList": [
             {
                 "tests": [
                     "en1", 
                     "en2"
                 ],
+
                 "action": "average",
                 "condition": "greater",
                 "grade": 60
             },
+
             {
                 "tests": [
                     "tech"

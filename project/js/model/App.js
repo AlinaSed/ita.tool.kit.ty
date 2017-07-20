@@ -1,8 +1,8 @@
 'use strict';
 
-export class App {
+class App {
     constructor () {
-        this.groupLst = [];
+        this.groupList = [];
         this.settings = new Settings();
     }
 

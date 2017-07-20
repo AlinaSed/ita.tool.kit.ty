@@ -1,6 +1,6 @@
 'use strict';
 
-export class Test {
+class Test {
     constructor (name, maxGrade, grade) {
         this.name = name;
         this.maxGrade = maxGrade;

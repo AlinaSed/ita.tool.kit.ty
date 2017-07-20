@@ -1,28 +1,27 @@
 'use strict';
 
-export class SettingsController {
+class SettingsController {
 	constructor (direction) {
         this.direction = direction;
         this.directionNames;
     }
 
     getDirectionNames () {
-	let names = [];
+	    let names = [];
 	    
-        this.direction.forEach((item)=>{
-            names.push[item.name]
+        this.direction.forEach((item) => {
+            names.push[item.name];
         });
         return names;
     }
 
     getDirectionTests (name) {
-	let result = [];
+	    let result = [];
 	    
-        this.direction.forEach((item)=>{
-            if (item.name !== name) continue;
+        this.direction.forEach((item) => {
             result = item.testList;
         });
+
         return result;
     }
-
 }

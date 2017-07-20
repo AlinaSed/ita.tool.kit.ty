@@ -1,6 +1,6 @@
 'use strict';
 
-export class Group {
+class Group {
     constructor (name, direction) {
         this.name = name;
         this.direction = direction.name;
