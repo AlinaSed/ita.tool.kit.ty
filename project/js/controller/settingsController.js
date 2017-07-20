@@ -16,9 +16,11 @@ export class SettingsController {
     }
 
     getDirectionTests (name) {
+	let result = [];
+	    
         this.direction.forEach((item)=>{
             if (item.name !== name) continue;
-            let result = item.testList;
+            result = item.testList;
         });
         return result;
     }
