@@ -2,6 +2,10 @@
 
 class Settings {
     constructor () {
-       this.directions = [];  
+        this.directionList = [];  
+    }
+
+    addDirection () {
+        this.directionList.push(new Direction(name));
     }
 }      

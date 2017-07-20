@@ -1,6 +1,9 @@
 'use strict';
 
-const directionListTest = [
+let directionListTest,
+    groupListTest;
+
+directionListTest = [
     {
         "name": "UI",
         "testList": [            
@@ -95,7 +98,7 @@ const directionListTest = [
     }
 ];
 
-const groupListTest = [
+groupListTest = [
     {
         "name": "Dp-117-js",
         "direction": "UI",

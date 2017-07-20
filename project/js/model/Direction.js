@@ -8,7 +8,7 @@ class Direction {
     }
 
     addTest (name) {
-        this.testList.push(new Test(name));
+        this.testList.push(new Test(name, maxGrade));
     }
 
     addFilter (tests, action, condition, grade) {

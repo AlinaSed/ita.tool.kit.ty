@@ -8,6 +8,6 @@ class App {
     }
 
     addGroup () {
-        this.groupList.push(new Group());
+        this.groupList.push(new Group(name, direction));
     }
 }
