@@ -1,13 +1,16 @@
 'use strict';
 
-class App {
+export class App {
     constructor () {
-        this.groupList = [];
+        this.groups = [];
         this.settings = new Settings();
-        
     }
 
     addGroup () {
-        this.groupList.push(new Group(name, direction));
+        this.groups.push(new Group());
+    }
+
+    start () {
+    	return new GroupController(this.groups); //* name is correct ?
     }
 }

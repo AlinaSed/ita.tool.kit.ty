@@ -1,6 +1,6 @@
 'use strict';
 
-class Settings {
+export class Settings {
     constructor () {
         this.directionList = [];  
     }
@@ -9,3 +9,4 @@ class Settings {
         this.directionList.push(new Direction(name));
     }
 }      
+

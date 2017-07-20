@@ -1,6 +1,6 @@
 'use strict';
 
-class Direction {
+export class Direction {
     constructor (name) { 
         this.name = name;
         this.testList = [];
@@ -8,7 +8,7 @@ class Direction {
     }
 
     addTest (name) {
-        this.testList.push(new Test(name, maxGrade));
+        this.testList.push(new Test(name));
     }
 
     addFilter (tests, action, condition, grade) {
