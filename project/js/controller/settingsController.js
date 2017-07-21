@@ -7,7 +7,7 @@ class SettingsController {
     }
 
     getDirectionNames () {
-	    let names = [];
+	let names = [];
 	    
         this.direction.forEach((item) => {
             names.push[item.name];
