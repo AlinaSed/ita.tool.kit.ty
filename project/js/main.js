@@ -2,14 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', init, false);
 
-function init () {
+//global variable
+let mediator = new Mediator();
+
+function init() {
     let app = new App();
 
-    lounchTestData(app.groupList, app.settings);
-	app.start();
-}
+    app.groupList = prefilledGroups;
+    app.settings.directionList = prefilledDirection;
 
-function lounchTestData (groupList, settings) {
-    groupListTest.forEach((group) => groupList.push(group));
-    directionListTest.forEach((direction) => settings.directionList.push(direction));
+    app.start();
 }

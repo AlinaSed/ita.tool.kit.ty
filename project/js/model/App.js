@@ -1,17 +1,20 @@
 'use strict';
 
 class App {
-    constructor () {
+    constructor() {
         this.groupList = [];
         this.settings = new Settings();
     }
 
-    addGroup () {
+    addGroup() {
         this.groupList.push(new Group());
     }
 
-    start () {
-        let groupController = new GroupController();
-        groupController.render(this.groupList);
+    start() {
+        let groupListView = new GroupListView(this.settings);
+        let groupController = new GroupController(this.groupList, this.settings, groupListView);
+    
+
+        groupController.renderGroupList();
     }
 }

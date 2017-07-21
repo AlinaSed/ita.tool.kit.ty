@@ -1,17 +1,17 @@
 'use strict';
 
 class Mediator {
-    constructor () {
+    constructor() {
         this.channels = {};
     }
 
-    publish (channel, data) {
+    pub(channel, data) {
         if (this.channels[channel]) {
             this.channels[channel].forEach((fn) => fn(data));
         }
     }
 
-    subscribe (channel, fn) {
+    sub(channel, fn) {
         if (!this.channels[channel]) {
             this.channels[channel] = [];
         }
