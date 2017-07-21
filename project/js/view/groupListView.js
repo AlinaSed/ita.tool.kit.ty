@@ -52,7 +52,7 @@ class GroupListView {
 
         this.settings.directionList.forEach((direction) => {
             directionDrowDown.insertAdjacentHTML('afterBegin', `  <option>${direction.name}</option>`);
-        })
+        });
     }
 
     clearModalInput() {
