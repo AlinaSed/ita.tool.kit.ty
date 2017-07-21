@@ -1,1 +1,1 @@
-setTimeout(function(){$('header').fadeOut(1000)},2000); 
+setTimeout(function(){$('header').fadeOut(0)},0); 
