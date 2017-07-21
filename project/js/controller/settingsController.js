@@ -16,7 +16,7 @@ class SettingsController {
     }
 
     getDirectionTests (name) {
-	    let result = [];
+	let result = [];
 	    
         this.direction.forEach((item) => {
             result = item.testList;
