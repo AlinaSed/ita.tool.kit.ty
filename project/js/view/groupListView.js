@@ -22,7 +22,8 @@ class GroupListView {
         });
 
         document.querySelector(this.selectors.saveGroup).addEventListener('click', (event) => {
-
+            event.preventDefault();
+            
             let directionDrowDownElement = document.querySelector(this.selectors.directionDrowDown);
             let groupNameValue = document.querySelector(this.selectors.groupNameInput).value;
             let directionValue = directionDrowDownElement.options[directionDrowDownElement.selectedIndex].text;
