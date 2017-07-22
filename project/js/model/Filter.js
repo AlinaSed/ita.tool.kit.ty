@@ -8,3 +8,5 @@ class Filter {
         this.grade = grade;
     }
 }
+
+module.exports = Filter;

@@ -1,5 +1,9 @@
 'use strict';
 
+let GroupView = require('../view/groupView.js'),
+    Group = require('../model/Group.js'),
+    mediator = require('../Mediator.js');
+
 class GroupController {
     constructor(groups, settings, groupListView) {
         this.groups = groups;
@@ -34,3 +38,5 @@ class GroupController {
         this.groupListView.fillDirectionDropDown();
     }
 }
+
+module.exports = GroupController;

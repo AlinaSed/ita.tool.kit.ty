@@ -7,3 +7,5 @@ class Test {
         this.grade = grade;
     }
 }
+
+module.exports = Test;

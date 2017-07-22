@@ -25,3 +25,5 @@ class SettingsController {
         return result;
     }
 }
+
+module.exports = SettingsController;

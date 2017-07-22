@@ -3,3 +3,5 @@
 class SettingsView {
     
 }
+
+module.exports = SettingsView;

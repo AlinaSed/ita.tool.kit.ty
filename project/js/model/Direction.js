@@ -15,3 +15,5 @@ class Direction {
         this.filterList.push(new Filter(tests, action, condition, grade));
     }
 }
+
+module.exports = Direction;

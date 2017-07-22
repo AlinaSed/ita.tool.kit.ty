@@ -1,5 +1,7 @@
 'use strict';
 
+let mediator = require('../Mediator.js');
+
 class GroupListView {
     constructor(settings) {
         this.settings = settings;
@@ -59,3 +61,6 @@ class GroupListView {
         document.querySelector(this.selectors.groupNameInput).value = '';
     }
 }
+
+module.exports = GroupListView;
+

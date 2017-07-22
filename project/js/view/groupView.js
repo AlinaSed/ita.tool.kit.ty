@@ -1,7 +1,6 @@
 'use strict';
 
 class GroupView {
-
     constructor(groupName) {
         this.groupName = groupName;
         this.container = document.querySelector(this.selectors.groupContainer);
@@ -19,3 +18,5 @@ class GroupView {
         this.container.insertAdjacentHTML('afterBegin', template);
     }
 }
+
+module.exports = GroupView;

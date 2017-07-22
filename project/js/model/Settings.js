@@ -8,5 +8,6 @@ class Settings {
     addDirection () {
         this.directionList.push(new Direction(name));
     }
-}      
+}     
 
+module.exports = Settings;

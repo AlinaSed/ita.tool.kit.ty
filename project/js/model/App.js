@@ -1,5 +1,9 @@
 'use strict';
 
+let Settings = require('./Settings.js'),
+    GroupListView = require('../view/groupListView.js'),
+    GroupController = require('../controller/groupController.js');
+
 class App {
     constructor() {
         this.groupList = [];
@@ -14,7 +18,8 @@ class App {
         let groupListView = new GroupListView(this.settings);
         let groupController = new GroupController(this.groupList, this.settings, groupListView);
     
-
         groupController.renderGroupList();
     }
 }
+
+module.exports = App;

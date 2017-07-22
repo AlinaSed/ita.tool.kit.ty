@@ -19,3 +19,7 @@ class Mediator {
         this.channels[channel].push(fn);
     }
 }
+
+let mediator = new Mediator();
+
+module.exports = mediator;

@@ -8,3 +8,5 @@ class Group {
         this.filterList = direction.filterList;
     }
 }
+
+module.exports = Group;
