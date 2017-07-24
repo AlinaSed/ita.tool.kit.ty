@@ -18,6 +18,7 @@ class App {
     start() {
         let groupListView = new GroupListView(this.settings),
             groupController = new GroupController(this.groupList, this.settings, groupListView),
+            testListController = new TestListController(),
             settingsController = new SettingsController(this.settings);
 
         groupController.renderGroupList();

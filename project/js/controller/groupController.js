@@ -6,7 +6,7 @@ let GroupItemView = require('../view/groupItemView.js'),
     mediator = require('../Mediator.js');
 
 class GroupController {
-    constructor (groups, settings, groupListView) {
+    constructor(groups, settings, groupListView) {
         this.groupListView = groupListView;
         this.settings = settings;
         this.groups = groups;
@@ -14,33 +14,33 @@ class GroupController {
         this.activate();
     }
 
-    renderGroupList (groups) {
+    renderGroupList(groups) {
         this.groups.forEach((group) => {
-            let view = new GroupItemView(group.name);
+            let view = new GroupItemView(group);
             view.render();
         });
     }
 
-    addNewGroup (group) {
-        let view = new GroupItemView(group.name);
-
+    addNewGroup(group) {
+        let view = new GroupItemView(group);
+        mediator.pub('addSelectedGroup', group);
         view.render();
     }
 
-    activate () {
+    activate() {
         mediator.sub('openAddGroupdDialog', this.showAddGroupHandler.bind(this));
         mediator.sub('saveGroup', this.addNewGroupHandler.bind(this));
     }
 
-    showAddGroupHandler () {
+    showAddGroupHandler() {
         let addGroupModalView = new AddGroupView(this.settings);
 
         addGroupModalView.show();
     }
 
-    addNewGroupHandler (data) {
+    addNewGroupHandler(data) {
         let newGroup = new Group(data.groupdName, data.direction);
-        
+
         this.addNewGroup(newGroup);
     }
 }

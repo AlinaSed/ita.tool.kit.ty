@@ -1,69 +1,62 @@
 'use srtict';
-
 let mediator = require('../Mediator.js');
 
 class AddGroupView {
-    constructor (settings) {
-        this.directionDropDown = document.querySelector(this.selectors.directionDropDown);
-        this.groupNameInput = document.querySelector(this.selectors.groupNameInput);
-        this.closeButton = document.querySelector(this.selectors.closeButton);
-        this.modal = document.querySelector(this.selectors.modal);
-        this.save = document.querySelector(this.selectors.save);
+    constructor(settings) {
+
         this.body = document.body;
         this.settings = settings;
     }
 
-    get selectors () {
+    get selectors() {
         return {
-            closeButton: '#close-button',
-            save: '#save-group',
-            modal: '#add-group-modal',
-            directionDropDown: '#direction-dropdown',
+            closeButton: '.close-group-btn',
+            save: '.save-group-btn',
+            modal: '.add-group-modal',
+            directionDropDown: '.add-group-modal .direction-dropdown',
             groupNameInput: '#group-name',
             modalBackdrop: '.modal-backdrop'
         };
     }
 
-    show () {
-        let modalBackdrop = '<div id="modal-backdrop" class="modal-backdrop fade in"></div>';
-        
-        this.body.insertAdjacentHTML('beforeEnd', modalBackdrop);
+    show() {
+        this.addLayover();
+        this.body.insertAdjacentHTML('beforeEnd', tpl.addGroupModal);
         this.body.classList.add('modal-open');
-        this.body.classList.add('with-modal');
-        this.modal.classList.add('display');
-        this.modal.classList.add('in');
         this.fillDirectionDropDown();
         this.activate();
     }
 
-    hide () {
+    hide() {
         this.diactivate();
-
-        this.body.classList.remove('modal-open');
-        this.body.classList.remove('with-modal');
-        this.modal.classList.remove('display');
-        this.modal.classList.remove('in');
-
+        this.body.classList.remove("modal-open");
         document.querySelector(this.selectors.modalBackdrop).remove();
+        document.querySelector(this.selectors.modal).remove();
     }
 
 
-    activate () {
-        $(this.selectors.save).bind('click', this.saveGroup.bind(this));
-        $(this.selectors.closeButton).bind('click', this.hide.bind(this));
+    activate() {
+        $(this.selectors.save).bind("click", this.saveGroup.bind(this));
+        $(this.selectors.closeButton).bind("click", this.hide.bind(this));
     }
 
-    diactivate () {
-        $(this.selectors.save).unbind('click');
-        $(this.selectors.closeButton).unbind('click');
+    diactivate() {
+        $(this.selectors.save).unbind("click");
+        $(this.selectors.closeButton).unbind("click");
         this.clearModalInput();
     }
 
-    saveGroup (event) {
+    addLayover() {
+        let modalBackdrop = `<div id="div" class="modal-backdrop fade in"></div>`;
+        this.body.insertAdjacentHTML('beforeEnd', modalBackdrop);
+    }
+
+    saveGroup(event) {
         event.preventDefault();
 
-        let directionValue = this.directionDropDown.options[this.directionDropDown.selectedIndex].text,
-            groupNameValue = this.groupNameInput.value,
+        let directionDropDown = document.querySelector(this.selectors.directionDropDown),
+            directionValue = directionDropDown.options[directionDropDown.selectedIndex].text,
+            groupNameValue = document.querySelector(this.selectors.groupNameInput).value,
             selectedDirection = this.settings.directionList.find((value) => {
                 return value.name === directionValue;
             });
@@ -76,17 +69,22 @@ class AddGroupView {
         this.hide();
     }
 
-    fillDirectionDropDown () {
-        let options = '';
+    validateInput() {
+
+    }
+
+    fillDirectionDropDown() {
+        let options = '',
+            directionDropDown = document.querySelector(this.selectors.directionDropDown);
 
         this.settings.directionList.forEach((direction) => {
             options += `<option>${direction.name}</option>`;
         });
-        this.directionDropDown.innerHTML = options;
+        directionDropDown.innerHTML = options;
     }
 
-    clearModalInput () {
-        this.groupNameInput.value = '';
+    clearModalInput() {
+        document.querySelector(this.selectors.directionDropDown).value = '';
     }
 }
 
