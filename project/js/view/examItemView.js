@@ -1,5 +1,7 @@
 'use strict';
 
+let mediator = require('../Mediator.js');
+
 class ExamItemView {
     constructor(test) {
         this.container = document.querySelector(this.selectors.testSection);
@@ -30,3 +32,5 @@ class ExamItemView {
         mediator.pub('groupSelected', this.currentGroup);
     }
 }
+
+module.exports = ExamItemView;
