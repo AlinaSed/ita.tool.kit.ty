@@ -16,7 +16,7 @@ module.exports = {
      be used to map the code within a compressed file back to it’s original source */
     devtool: 'inline-source-map',
 
-    watch: false,
+    watch: true,
 
 	watchOptions: {
 		aggregateTimeout: 100
