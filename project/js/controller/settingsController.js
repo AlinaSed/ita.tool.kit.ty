@@ -17,9 +17,6 @@ class SettingsController {
 
     showSettings () {
         let view = new SettingsView(this.settings);
-
-        //view.showSettingsWindow();
-        //view.renderDirectionNames();
     }
 }
 

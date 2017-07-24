@@ -1,5 +1,7 @@
 'use strict';
 
+let tpl = require('./tpl/tplModalSettings.js');
+
 class SettingsView {
     constructor (settings) {
         this.settings = settings;
@@ -12,29 +14,38 @@ class SettingsView {
 
     showSettingsWindow () {
         let darkLayer = document.createElement('div'),
-            //modalContainer = document.querySelector('#modal-container');
-            modalWin = document.querySelector('#settings');
+            modalContainer = document.querySelector('.modal-container'),
+            buttonClose;
+            //modalWin = document.querySelector('#settings');
 
-        darkLayer.id = 'shadow'; //darkLayer.setAtribute('id') = 'shadow';
+        darkLayer.id = 'shadow'; //darkLayer.classList.add('shadow');
         document.body.appendChild(darkLayer);
-        //modalContainer.innerHTML = tpl.modalSettings();
-        //modalContainer.style.display = 'block'; 
-        modalWin.style.display = 'block';
+        modalContainer.innerHTML = tpl.modalSettings;
+        modalContainer.style.display = 'block'; 
+        //modalWin.style.display = 'block';
 
         darkLayer.addEventListener('click', () => {
             darkLayer.parentNode.removeChild(darkLayer);
-            //modalContainer.style.display = 'none';
-            modalWin.style.display = 'none';
-            return false;
+            modalContainer.style.display = 'none';
+            //modalWin.style.display = 'none';
+            //return false;
         }, false);
+
+        buttonClose = modalContainer.querySelector('.close-button');
+
+        buttonClose.addEventListener('click', () => {
+            darkLayer.parentNode.removeChild(darkLayer);
+            modalContainer.style.display = 'none';
+            //modalWin.style.display = 'none';
+            //return false;
+        }, false);
+
     }
 
     renderDirectionNames () {
-        let directionSelect = document.querySelector('#directionSelect'),
+        let directionSelect = document.querySelector('.direction-select'),
             optionList = '',
             tpl = '';
-
-//console.log(directionSelect);
 
         this.settings.directionList.forEach((direction, i) => {
             optionList += `
@@ -44,38 +55,38 @@ class SettingsView {
             `;
         });
 
+        // add glificon
         tpl = `
-            <select id="settings-directions-select" class="direction"> 
+            <select class="settings-directions-select direction"> 
                 ${optionList} 
-                <option value="addDirection"> Add direction </option>
+                <option value="addDirection"> Add direction </option>   
             </select>
-        `;
+        `;  
 
         directionSelect.innerHTML = tpl;
     }
 
     activate () {
-        let buttonTests, 
-            buttonFilters,
-            elSelect;
-
-        buttonTests = document.querySelector('#showTestList');
-        buttonFilters = document.querySelector('#showFilterList');
-        elSelect = document.querySelector('#settings-directions-select');
+        let elSelect = document.querySelector('.settings-directions-select'),
+            buttonTests = document.querySelector('.show-test-list'),
+            buttonFilters = document.querySelector('.show-filter-list');
+        
 
         elSelect.addEventListener('change', () => {
             let selectedDirectionName;
 
             selectedDirectionName = elSelect.options[elSelect.selectedIndex].value;
+
             if (selectedDirectionName === 'addDirection') {
                 
             } else {
                 this.renderTestsOrFilters(selectedDirectionName);
             }
+            
         }, false);
 
         buttonTests.addEventListener('click', () => {
-            let elSelect = document.querySelector('#settings-directions-select'),
+            let elSelect = document.querySelector('.settings-directions-select'),
                 selectedDirectionName = elSelect.options[elSelect.selectedIndex].value;
             
             this.testFilterSwitcher = 'T';
@@ -84,7 +95,7 @@ class SettingsView {
         }, false);
 
         buttonFilters.addEventListener('click', () => {
-            let elSelect = document.querySelector('#settings-directions-select'),
+            let elSelect = document.querySelector('.settings-directions-select'),
                 selectedDirectionName = elSelect.options[elSelect.selectedIndex].value;
 
             this.testFilterSwitcher = 'F';
@@ -110,13 +121,13 @@ class SettingsView {
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
         direction.testList.forEach((test) => tpl += `<li>${test.name}</li>`);
-        tpl += `</ul><button id="add-test"onclick="console.log('Add Test')">Add test</button></div>`;
-        listContainer.innerHTML = tpl;  //direction.filterList[0];
+        tpl += `</ul><button class="add-test">Add test</button></div>`;
+        listContainer.innerHTML = tpl;  
 
-       // buttonAddTest = document.querySelector('#add-test');//document.createElement('button');
-        //buttonAddTest.id = 'add-test';
-        // listContainer.appendChild(buttonAddTest);
-        //buttonAddTest.addEventListener('click', console.log('Add Test'), false);
+        buttonAddTest = document.querySelector('.add-test');
+        buttonAddTest.addEventListener('click', () => { 
+            console.log('Add Test');
+        }, false);
     }
 
     renderFilters (directionName) {
@@ -128,10 +139,13 @@ class SettingsView {
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
         direction.filterList.forEach((filter) => tpl += `<li>${filter}</li>`);
-        tpl += `</ul><button id="add-filter">Add filter</button></div>`;
-        listContainer.innerHTML = tpl;  //direction.filterList[0];
-        buttonAddFilter = document.querySelector('#add-filter');
-        buttonAddFilter.addEventListener('click', console.log('add filter'), false); //preventDefault, stopPropagation
+        tpl += `</ul><button class="add-filter">Add filter</button></div>`;
+        listContainer.innerHTML = tpl;  
+        buttonAddFilter = document.querySelector('.add-filter');
+
+        buttonAddFilter.addEventListener('click', () => {
+            console.log('add filter');
+        }, false);
     }
 }
 
