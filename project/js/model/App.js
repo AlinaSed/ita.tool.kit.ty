@@ -2,7 +2,8 @@
 
 let Settings = require('./Settings.js'),
     GroupListView = require('../view/groupListView.js'),
-    GroupController = require('../controller/groupController.js');
+    GroupController = require('../controller/groupController.js'),
+    SettingsController = require('../controller/settingsController.js');
 
 class App {
     constructor() {
@@ -15,9 +16,10 @@ class App {
     }
 
     start() {
-        let groupListView = new GroupListView(this.settings);
-        let groupController = new GroupController(this.groupList, this.settings, groupListView);
-    
+        let groupListView = new GroupListView(this.settings),
+            groupController = new GroupController(this.groupList, this.settings, groupListView),
+            settingsController = new SettingsController(this.settings);
+
         groupController.renderGroupList();
     }
 }

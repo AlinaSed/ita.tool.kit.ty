@@ -1,7 +1,6 @@
 // Karma configuration
 // Generated on Mon Jul 17 2017 20:11:40 GMT+0300 (Финляндия (лето))
 let webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
 
 module.exports = function(config) {
     config.set({
@@ -17,24 +16,35 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        './build/main.js',
-        'tests/*.spec.js', 
+        './project/js/model/*.js',
+        './tests/*.spec.js'
     ],
+
+    preprocessors: {
+        'tests/*.spec.js': ['webpack'],
+        './project/js/model/*.js': ['webpack']
+    },
+
+    webpack: webpackConfig,
 
 
     // list of files to exclude
     exclude: [
     ],
 
+    plugins: [
+  // Karma will require() these plugins
+    'karma-babel-preprocessor',
+    'karma-webpack',
+    'karma-chrome-launcher',
+    'karma-jasmine',
+    'karma-jasmine-html-reporter'
+    ],
+
 
     // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-        './build/main.js': ['webpack'],
-        'tests/*.spec.js': ['babel']
-    },
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocesso
 
-    webpack: webpackConfig,
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration

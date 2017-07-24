@@ -1,30 +1,19 @@
 'use strict';
 
-describe('lounchTestData method', function () {
+let App = require('../project/js/model/App.js'),
+    Direction = require('../project/js/model/Direction.js');
+
+describe('direction', function () {
     let app = new App();
 
-    lounchTestData(app.groupList, app.settings);
+    app.settings.directionList = [new Direction('php'), new Direction('go'), new Direction('js')];
 
-    it('Should add 3 groups to app', function () {
-        expect(app.groupList.length).toBe(3);
+    it('should have a name GO ', function () {
+        expect(app.settings.directionList[0].name).toBe('php');
     });
 
-    describe('Should add settings to app', function () {    
-            it('Should create 3 directions', function () {
-                expect(app.settings.directionList.length).toBe(3);
-            });
-    
-            it('The 2nd group name should be Dp-112-go', function () {
-                expect(app.groupList[1].name).toBe('Dp-112-go');
-            });
-    
-            it('The 1st direction name should be UI', function () {
-                expect(app.settings.directionList[0].name).toBe('UI');
-            });
-    
-            it('The direction UI should have 6 tests', function () {
-                expect(app.settings.directionList[0].testList.length).toBe(6);
-            });
-        });
+    it('should have length of 3', function () {
+        expect(app.settings.directionList.length).toBe(3);
+    });
 });
 

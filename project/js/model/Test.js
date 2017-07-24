@@ -1,10 +1,9 @@
 'use strict';
 
 class Test {
-    constructor (name, maxGrade, grade) {
+    constructor (name, maxGrade) {
         this.name = name;
         this.maxGrade = maxGrade;
-        this.grade = grade;
     }
 }
 

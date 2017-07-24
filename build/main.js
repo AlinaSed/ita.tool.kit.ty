@@ -8,9 +8,15 @@ let Group = require('../project/js/model/Group.js'),
     Test = require('../project/js/model/Test.js'),
     GroupController = require('../project/js/controller/groupController.js'),
     SettingsController = require('../project/js/controller/settingsController.js'),
-    GroupView = require('../project/js/view/groupView.js'),
+    AddGroupView = require('../project/js/view/AddGroupView.js'),
     SettingsView = require('../project/js/view/settingsView.js'),
-    prefilledGroups = require('../project/js/testData.js'),
-    prefilledDirection = require('../project/js/testData.js'),
+    GroupListView = require('../project/js/view/groupListView.js'),
+    GroupItemView = require('../project/js/view/groupListView.js'),
+    prefilledGroups = require('../project/js/prefilledGroups.js'),
+    prefilledDirection = require('../project/js/prefilledDirection.js'),
     mediator = require('../project/js/Mediator.js'),
+    tpl = require('../project/js/view/tpl/tplModalSettings.js'),
     init = require('../project/js/main.js');
+
+
+  

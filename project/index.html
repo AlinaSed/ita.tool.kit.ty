@@ -35,10 +35,10 @@
                         <section>
                             <div class="titleSection">Group</div>
                             <div id="group-container">
-                                <i id="add-group" class="add-button fa fa-plus-circle" aria-hidden="true" data-toggle="modal" data-target="#myModal"></i>
+                                <i id="add-group" class="add-button fa fa-plus-circle" aria-hidden="true"></i>
                             </div>
                             <div class="config">
-                            <i id='config' class="config-button fa fa-cog" aria-hidden="true"></i>
+                                <i id='config' class="config-button fa fa-cog" aria-hidden="true"></i>
                             </div>
                         </section>
                         <section>
@@ -65,13 +65,12 @@
                 </div>
             </div>
         </main>
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="add-group-modal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Group managment</h4>
                     </div>
                     <div class="modal-body">
@@ -87,15 +86,27 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="close-button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Modal settings --> 
+        <!-- Modal settings -->
         <div id="settings" class="modalwin">
+            <div id="directionSelect"></div>
+            <br>
+            <button id="showTestList">Tests</button>
+            <button id="showFilterList">Filters</button>
+            <br>
+            <div id="tests-filters-container">
+                <div id="TestListOfDirection">Tests should be here</div>
+                <div id="FilterListOfDirection">Filter should be here</div>
+            </div>
+        </div>
+
+    <!--<div id="settings" class="modalwin">
             <div id="directionSelect">
 
             </div>
@@ -103,6 +114,8 @@
 
             </div>
         </div>
+    --> 
+       <!-- <div id="modal-container" class="modalwin"></div>  -->         
 
       <footer>
         <span>© SoftServe Dp-117 JS, 2010-2017</span>

@@ -223,6 +223,12 @@ footer img {
     #directionSelect select:focus {
         outline: none;
     }
+/*#  one more styles for modal window */
+.with-modal{
+    padding-right:17px;
+}
 
-
+.display{
+    display: block;
+}
 /*# sourceMappingURL=main.css.map */

@@ -1,41 +1,47 @@
 'use strict';
 
-let GroupView = require('../view/groupView.js'),
+let GroupItemView = require('../view/groupItemView.js'),
+    AddGroupView = require('../view/addGroupView.js'),
     Group = require('../model/Group.js'),
     mediator = require('../Mediator.js');
 
 class GroupController {
-    constructor(groups, settings, groupListView) {
-        this.groups = groups;
-        this.settings = settings;
+    constructor (groups, settings, groupListView) {
         this.groupListView = groupListView;
+        this.settings = settings;
+        this.groups = groups;
+
         this.activate();
     }
 
-    renderGroupList(groups) {
+    renderGroupList (groups) {
         this.groups.forEach((group) => {
-            let view = new GroupView(group.name);
+            let view = new GroupItemView(group.name);
             view.render();
         });
     }
 
-    addNewGroup(group) {
-        let view = new GroupView(group.name);
+    addNewGroup (group) {
+        let view = new GroupItemView(group.name);
+
         view.render();
     }
 
-    activate() {
-        mediator.sub('openAddGroupdDialog', this.fillDiretionDropwDownHandler.bind(this));
-
-        mediator.sub('saveGroup', (data) => {
-            let newGroup = new Group(data.groupdName, data.direction);
-            this.groups.push(newGroup);
-            this.addNewGroup(newGroup);
-        })
+    activate () {
+        mediator.sub('openAddGroupdDialog', this.showAddGroupHandler.bind(this));
+        mediator.sub('saveGroup', this.addNewGroupHandler.bind(this));
     }
 
-    fillDiretionDropwDownHandler() {
-        this.groupListView.fillDirectionDropDown();
+    showAddGroupHandler () {
+        let addGroupModalView = new AddGroupView(this.settings);
+
+        addGroupModalView.show();
+    }
+
+    addNewGroupHandler (data) {
+        let newGroup = new Group(data.groupdName, data.direction);
+        
+        this.addNewGroup(newGroup);
     }
 }
 

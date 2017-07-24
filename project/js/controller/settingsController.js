@@ -1,14 +1,48 @@
 'use strict';
 
+let SettingsView = require('../view/settingsView.js'),
+    mediator = require('../Mediator.js');
+
 class SettingsController {
-	constructor (direction) {
-        this.direction = direction;
-        this.directionNames;
+    constructor (settings) {
+        this.settings = settings;
+        
+        this.activate();
     }
 
-    getDirectionNames () {
-	let names = [];
-	    
+    activate () {
+        mediator.sub('OpenSettings', () => this.showSettings());
+
+    }
+
+    showSettings () {
+        let view = new SettingsView(this.settings);
+
+        //view.showSettingsWindow();
+        //view.renderDirectionNames();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*  getDirectionNames () {
+    let names = [];
+        
         this.direction.forEach((item) => {
             names.push[item.name];
         });
@@ -16,14 +50,13 @@ class SettingsController {
     }
 
     getDirectionTests (name) {
-	let result = [];
-	    
+    let result = [];
+        
         this.direction.forEach((item) => {
             result = item.testList;
         });
 
         return result;
-    }
-}
+    }*/
 
 module.exports = SettingsController;
