@@ -34,7 +34,7 @@ class GroupListView {
 
 
     show () {
-       let modalGroupListView =  tpl.modalGroupListViev();
+       let modalGroupListView =  tpl.modalGroupListViev;
 
        this.groupSection.innerHTML = modalGroupListView;
        this.activate();
