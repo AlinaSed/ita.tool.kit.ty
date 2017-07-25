@@ -1,5 +1,8 @@
 'use strict';
 
+let Test = require('./Test.js'),
+    Filter = require('./Filter.js');
+
 class Direction {
     constructor (name) { 
         this.name = name;
