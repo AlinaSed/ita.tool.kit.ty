@@ -6,11 +6,11 @@ tpl.modalSettings = `
         <div id="settings">
             <div class="direction-select"></div>
             
-            <p><button class="show-test-list">Tests</button></p>
-            <p><button class="show-filter-list">Filters</button></p>
+           <div class="t-btn"><img src="images/t.png" class="show-test-list"/></div>
+            <div class="f-btn"><img src="images/f.png" class="show-filter-list"/></div>
             
-            <div id="tests-filters-container"></div>
-            <p><button class="close-button">Close</button></p>
+            <div id="tests-filters-container" class="direction-list"></div>
+            <div class="close-btn"><i class="fa fa-window-close close-button close-btn" aria-hidden="true"></i></div>
         </div>
 `;
 
