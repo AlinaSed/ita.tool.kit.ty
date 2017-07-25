@@ -1,5 +1,7 @@
 'use strict';
 
+let tpl = require('./tplModalSettings.js');
+
 tpl.modalGroupListViev = () => {
     return `
     <div class="titleSection">Group</div>
@@ -11,3 +13,4 @@ tpl.modalGroupListViev = () => {
     </div>
     `;
 };
+

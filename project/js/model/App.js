@@ -3,7 +3,8 @@
 let Settings = require('./Settings.js'),
     GroupListView = require('../view/groupListView.js'),
     GroupController = require('../controller/groupController.js'),
-    SettingsController = require('../controller/settingsController.js');
+    SettingsController = require('../controller/settingsController.js'),
+    TestListController = require('../controller/testListController.js');
 
 class App {
     constructor() {
