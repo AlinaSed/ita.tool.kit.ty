@@ -1,5 +1,6 @@
 'use srtict';
-let mediator = require('../Mediator.js');
+let mediator = require('../Mediator.js'),
+    tpl = require('../view/tpl/tplModalSettings.js');
 
 class AddGroupView {
     constructor(settings) {

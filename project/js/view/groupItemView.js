@@ -1,5 +1,7 @@
 'use strict';
 
+let mediator = require('../Mediator.js');
+
 class GroupItemView {
     constructor(group) {
         this.container = document.querySelector(this.selectors.groupContainer);

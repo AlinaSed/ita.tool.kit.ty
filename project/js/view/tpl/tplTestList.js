@@ -1,5 +1,7 @@
 'use strict';
 
+let tpl = require('./tplModalSettings.js');
+
 tpl.testListModal =
     `<div class="modal fade display in add-group-modal">
             <div class="modal-dialog">

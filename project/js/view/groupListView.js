@@ -1,6 +1,7 @@
 'use strict';
 
-let mediator = require('../Mediator.js');
+let mediator = require('../Mediator.js'),
+    tpl = require('./tpl/tplModalSettings.js');
 
 class GroupListView {
     constructor (settings) {
