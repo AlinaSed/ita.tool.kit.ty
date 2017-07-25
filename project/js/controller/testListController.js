@@ -2,14 +2,14 @@
 
 let ExamItemView = require('../view/examItemView.js'),
     mediator = require('../Mediator.js');
-    
+
 class TestListController {
     constructor() {
         this.activate();
     }
 
     activate() {
-        mediator.sub('groupSelected', this.groupSelectedHandler);
+        mediator.sub('groupSelected', this.groupSelectedHandler.bind(this));
     }
 
     groupSelectedHandler(group) {

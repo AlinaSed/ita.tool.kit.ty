@@ -27,10 +27,6 @@ class ExamItemView {
 
         this.container.insertAdjacentHTML('afterBegin', template);
     }
-
-    selectGroupItem() {
-        mediator.pub('groupSelected', this.currentGroup);
-    }
 }
 
 module.exports = ExamItemView;

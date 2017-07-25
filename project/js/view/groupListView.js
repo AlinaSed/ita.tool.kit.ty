@@ -4,40 +4,52 @@ let mediator = require('../Mediator.js'),
     tpl = require('./tpl/tplModalSettings.js');
 
 class GroupListView {
-    constructor (settings) {
+    constructor(settings) {
         this.groupSection = document.querySelector(this.selectors.modalGroupListView);
-        this.settings = settings;
+        this.render();
 
-        this.show();
+        this.groupContainer = document.querySelector(this.selectors.groupContainer);
+        this.settings = settings;
     }
 
-    get selectors () {
+    get selectors() {
         return {
-            modalGroupListView : '#group-section',
+            modalGroupListView: '#group-section',
             addGroupButton: '#add-group',
-            config: '#config'         
+            config: '#config',
+            groupContainer: '#group-container',
+            groupItem: '.group-item'
         };
     }
 
-    activate () {
+    activate() {
         let addGroupButton = document.querySelector(this.selectors.addGroupButton),
             config = document.querySelector(this.selectors.config);
-            
+
         addGroupButton.addEventListener('click', () => {
             mediator.pub('openAddGroupdDialog');
         });
 
-      config.addEventListener('click', () => {
+        config.addEventListener('click', () => {
             mediator.pub('OpenSettings');
-        }, false);  
+        }, false);
     }
 
 
-    show () {
-       let modalGroupListView =  tpl.modalGroupListViev;
+    render() {
+        let modalGroupListView = tpl.modalGroupListViev;
+        this.groupSection.innerHTML = modalGroupListView;
+        this.activate();
+    }
 
-       this.groupSection.innerHTML = modalGroupListView;
-       this.activate();
+    clearContainer() {
+        let groupItems = document.querySelectorAll(this.selectors.groupItem);
+
+        if (groupItems.length > 0) {
+            groupItems.forEach((item) => {
+                item.parentElement.remove();
+            });
+        }
     }
 }
 
