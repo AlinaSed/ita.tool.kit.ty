@@ -8,7 +8,7 @@ let Group = require('../project/js/model/Group.js'),
     Test = require('../project/js/model/Test.js'),
     GroupController = require('../project/js/controller/groupController.js'),
     SettingsController = require('../project/js/controller/settingsController.js'),
-    AddGroupView = require('../project/js/view/AddGroupView.js'),
+    AddGroupView = require('../project/js/view/addGroupView.js'),
     SettingsView = require('../project/js/view/settingsView.js'),
     GroupListView = require('../project/js/view/groupListView.js'),
     GroupItemView = require('../project/js/view/groupListView.js'),
@@ -16,7 +16,6 @@ let Group = require('../project/js/model/Group.js'),
     prefilledDirection = require('../project/js/prefilledDirection.js'),
     mediator = require('../project/js/Mediator.js'),
     tpl = require('../project/js/view/tpl/tplModalSettings.js'),
-    init = require('../project/js/main.js');
-
-
-  
+    init = require('../project/js/main.js'),
+    TestListController = require('../project/js/controller/testListController.js'),
+    ExamItemView = require('../project/js/view/examItemView.js');
