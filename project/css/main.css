@@ -168,15 +168,15 @@ footer img {
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
-#directionList {
+.direction-list {
     float: right;
 }
 
-.direction li {
+.t-f-list li {
     min-width: 200px;
 }
 
-.direction a {
+.t-f-list a {
     position: relative;
     display: block;
     padding: .4em .4em .4em 2em;
@@ -188,16 +188,16 @@ footer img {
     transition: .3s ease-out;
 }
 
-.direction a:hover {
+.t-f-list a:hover {
     background: #E9E4E0;
 }
 
-.direction a:hover:before {
+.t-f-list a:hover:before {
     transform: rotate(360deg);
 }
 
-.direction a:before {
-    content: counter(li);
+.t-f-list a:before {
+    content: '\2600';
     counter-increment: li;
     position: absolute;
     left: -1.3em;
@@ -205,8 +205,8 @@ footer img {
     margin-top: -1.3em;
     background: #006DF1;
     color: #fff;
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
     line-height: 2em;
     border: .3em solid white;
     text-align: center;
@@ -214,18 +214,55 @@ footer img {
     border-radius: 2em;
     transition: all .3s ease-out;
 }
+.t-btn{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
 
-#directionSelect {
+.f-btn{
+    position: absolute;
+    top: 35%;
+    left: 45%;
+}
+
+.close-btn{
+    font-size: 46px;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+.add-filter, .add-test{
+    font-size: 33px;
+    position: absolute;
+    left: -7%;
+    bottom: -34%;
+}
+.add-test{
+    font-size: 33px;
+    position: absolute;
+    left: -7%;
+    bottom: -14%;
+}
+
+.wrapper-list{
+    position: relative;
+}
+#settings{
+    min-height: 280px;
+}
+
+.direction-select {
     float: left;
     border: 1px solid #ccc;
     width: 120px;
     border-radius: 3px;
     padding-right: 35px;
     overflow: hidden;
-    background: #fafafa url(caret-down.png) no-repeat 95%;
+    background: #fafafa url(../images/caret-down.png) no-repeat 95%;
 }
 
-#directionSelect select {
+.direction-select select {
     padding: 5px 8px;
     width: 130%;
     border: none;
@@ -235,7 +272,7 @@ footer img {
     -webkit-appearance: none;
 }
 
-#directionSelect select:focus {
+.direction-select select:focus {
     outline: none;
 }
 
