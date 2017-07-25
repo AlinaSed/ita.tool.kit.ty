@@ -53,13 +53,13 @@ let testsForFilter1PHP = [
         prefilledDirection[2].testList[4]
     ];
 
-prefilledDirection[0].addFilter(testsForFilter1PHP, 'AVG', '>', 60);
-prefilledDirection[0].addFilter(testsForFilter2PHP, 'SUM', '>', 80);
+prefilledDirection[0].addFilter(testsForFilter1PHP[0], 'AVG', '>', 60);
+prefilledDirection[0].addFilter(testsForFilter2PHP[0], 'SUM', '>', 80);
 
-prefilledDirection[1].addFilter(testsForFilter1Go, 'AVG', '>', 50);
-prefilledDirection[1].addFilter(testsForFilter2Go, 'SUM', '>', 75);
+prefilledDirection[1].addFilter(testsForFilter1Go[0], 'AVG', '>', 50);
+prefilledDirection[1].addFilter(testsForFilter2Go[0], 'SUM', '>', 75);
 
-prefilledDirection[2].addFilter(testsForFilter1JS, 'AVG', '>', 80);
-prefilledDirection[2].addFilter(testsForFilter2JS, 'SUM', '>', 70);
+prefilledDirection[2].addFilter(testsForFilter1JS[0], 'AVG', '>', 80);
+prefilledDirection[2].addFilter(testsForFilter2JS[0], 'SUM', '>', 70);
 
 module.exports = prefilledDirection;

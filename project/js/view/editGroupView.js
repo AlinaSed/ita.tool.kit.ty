@@ -1,10 +1,8 @@
 'use srtict';
 let mediator = require('../Mediator.js'),
-    tpl = require('../view/tpl/tplModalSettings.js'),
-    Direction = require('../model/Direction.js'),
-    Group = require('../model/Group.js');
+    tpl = require('../view/tpl/tplModalSettings.js');
 
-class AddGroupView {
+class EditGroupView {
     constructor(settings) {
 
         this.body = document.body;
@@ -13,9 +11,9 @@ class AddGroupView {
 
     get selectors() {
         return {
-            closeButton: '.close-group-btn',
-            save: '.save-group-btn',
-            modal: '.add-group-modal',
+            closeButton: '.edit-group-modal .close-group-btn',
+            save: '.edit-group-modal .save-group-btn',
+            modal: '.edit-group-modal',
             directionDropDown: '.add-group-modal .direction-dropdown',
             groupNameInput: '#group-name',
             modalBackdrop: '.modal-backdrop'
@@ -34,7 +32,6 @@ class AddGroupView {
         document.querySelector(this.selectors.modalBackdrop).remove();
         document.querySelector(this.selectors.modal).remove();
     }
-
 
     activate() {
         $(this.selectors.save).bind("click", this.saveGroup.bind(this));
@@ -57,12 +54,14 @@ class AddGroupView {
         let directionDropDown = document.querySelector(this.selectors.directionDropDown),
             directionValue = directionDropDown.options[directionDropDown.selectedIndex].text,
             groupNameValue = document.querySelector(this.selectors.groupNameInput).value,
-
-            selectedDirection = directionValue !== 'Other' ? this.settings.directionList.find((value) => {
+            selectedDirection = this.settings.directionList.find((value) => {
                 return value.name === directionValue;
-            }) : new Direction('Other');
+            });
 
-        mediator.pub('saveGroup', new Group(groupNameValue, selectedDirection));
+        mediator.pub('saveGroup', {
+            groupdName: groupNameValue,
+            direction: selectedDirection
+        });
 
         this.hide();
     }
@@ -74,8 +73,8 @@ class AddGroupView {
         this.settings.directionList.forEach((direction) => {
             options += `<option>${direction.name}</option>`;
         });
-        directionDropDown.insertAdjacentHTML('afterbegin', options);
+        directionDropDown.innerHTML = options;
     }
 }
 
-module.exports = AddGroupView;
+module.exports = EditGroupView;

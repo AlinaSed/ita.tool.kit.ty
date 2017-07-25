@@ -255,4 +255,70 @@ footer img {
 }
 
 
+/*  editGroupTestModal */
+
+.edit-group-test-modal .grade-input {
+    width: 30%;
+}
+
+
+/*  editGroupTestModal end*/
+
+
+/*  edit group modal  */
+
+.context-menu-group-modal .modal-body {
+    text-align: center;
+}
+
+.context-menu-group-modal .edit-group-btn {
+    margin-left: 100px;
+}
+
+
+/*  edit group modal end  */
+
+
+/*  filter section  */
+
+#filter-section {
+    min-height: 150px;
+    position: relative;
+}
+
+#filter-section .filter-controls {
+    text-align: right;
+}
+
+#filter-section .add-filter {
+    margin-right: 49px;
+}
+
+#filter-section .arrow-controls {
+    display: inline-block;
+}
+
+#filter-section .filter-arrow {
+    font-size: 25px;
+    display: block;
+}
+
+#filter-section .filter-item {
+    display: inline-block;
+}
+
+#filter-section .filter-list {
+    font-size: 18px;
+    text-align: center;
+}
+
+#filter-section .btn-toggle {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/*  filter section end */
+
+
 /*# sourceMappingURL=main.css.map */
