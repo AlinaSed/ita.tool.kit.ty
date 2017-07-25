@@ -32,13 +32,13 @@ testListUI.push(new Test('Tech JS', 400));
 testListUI.push(new Test('Essay JS', 600));*/
 
 //prefilledDirection[0].testList = testListPHP;
-prefilledDirection[0].filterList = ['Filter1 php', 'Filter2 php'];
+//prefilledDirection[0].filterList = ['Filter1 php', 'Filter2 php'];
 
 //prefilledDirection[1].testList = testListGo;
-prefilledDirection[1].filterList = ['Filter1 go', 'Filter2 go'];
+//prefilledDirection[1].filterList = ['Filter1 go', 'Filter2 go'];
 
 //prefilledDirection[2].testList = testListUI;
-prefilledDirection[2].filterList = ['Filter1 ui', 'Filter2 ui'];
+//prefilledDirection[2].filterList = ['Filter1 ui', 'Filter2 ui'];
 
 prefilledGroups = [
     new Group('Dp-120', prefilledDirection[0]),

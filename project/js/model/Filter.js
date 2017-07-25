@@ -7,6 +7,10 @@ class Filter {
         this.condition = condition;
         this.grade = grade;
     }
+
+    get name () {
+        return `${this.action} ${this.condition} ${this.grade}`;
+    }
 }
 
 module.exports = Filter;

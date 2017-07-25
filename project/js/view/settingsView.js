@@ -138,7 +138,7 @@ class SettingsView {
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
-        direction.filterList.forEach((filter) => tpl += `<li>${filter}</li>`);
+        direction.filterList.forEach((filter) => tpl += `<li>${filter.name}</li>`);
         tpl += `</ul><button class="add-filter">Add filter</button></div>`;
         listContainer.innerHTML = tpl;  
         buttonAddFilter = document.querySelector('.add-filter');
