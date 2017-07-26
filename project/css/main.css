@@ -358,4 +358,28 @@ footer img {
 /*  filter section end */
 
 
+/*   add asign Users */
+
+.people-modal {
+    width: 400px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.people-input-area {
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+
+}
+
+//* for better view, should be deleted */
+.button-open-people {
+    width: 20px;
+    height: 50px;
+}
+
+
+/*     the end      */
+
 /*# sourceMappingURL=main.css.map */
