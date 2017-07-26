@@ -4,7 +4,8 @@ let ExamItemView = require('../view/examItemView.js'),
     mediator = require('../Mediator.js');
 
 class TestListController {
-    constructor() {
+    constructor(testListView) {
+        this.testListView = testListView;
         this.activate();
     }
 
@@ -13,12 +14,8 @@ class TestListController {
     }
 
     groupSelectedHandler(group) {
-        group.testList.forEach((currentTest) => {
-            let examView = new ExamItemView(currentTest);
-            examView.render();
-        })
+        this.testListView.renderTest(group);
     }
-
 }
 
 module.exports = TestListController;

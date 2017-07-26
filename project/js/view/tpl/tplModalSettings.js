@@ -237,13 +237,20 @@ tpl.filterItem = `
 
 tpl.editGroupTestModal = `<div class="modal fade display in edit-group-test-modal">
             <div class="modal-dialog">
-
                 <div class="modal-content">
                     <div class="modal-body">
+                        <div class="test-list">
                         {test-list}
-                        <input type="text" class="form-control grade-input">
-                    </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                    <i id="add-group" class="add-button fa fa-plus-circle add-exam-btn" aria-hidden="true"></i>
+                            </span>
+                            </div>
+                        </div> 
                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-default save-new-exams-btn">Save</button>
                         <button type="button" class="btn btn-default close-edit-test-btn" >Close</button>
                     </div>
                 </div>
@@ -251,5 +258,9 @@ tpl.editGroupTestModal = `<div class="modal fade display in edit-group-test-moda
             </div>
         </div>
         `;
+        
+tpl.testListView = `<div class="titleSection">Test list</div>
+                    <div id="test-list" class="clearfix"></div>
+                    `;
 
 module.exports = tpl;

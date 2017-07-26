@@ -9,7 +9,8 @@ let Settings = require('./Settings.js'),
     SettingsController = require('../controller/settingsController.js'),
     TestListController = require('../controller/testListController.js'),
     FilterController = require('../controller/filterController.js'),
-    mediator = require('../Mediator.js')
+    TestListView = require('../view/testListView.js'),
+    mediator = require('../Mediator.js');
 
 class App {
     constructor() {
@@ -23,11 +24,13 @@ class App {
 
     start() {
         let groupListView = new GroupListView(this.settings),
-            filterListView = new FilterListView(),
             groupController = new GroupController(this.groupList, this.settings, groupListView),
-            testListController = new TestListController(),
-            settingsController = new SettingsController(this.settings),
+            filterListView = new FilterListView(),
             filterController = new FilterController(),
+            testListView = new TestListView(),
+            testListController = new TestListController(testListView),
+            settingsController = new SettingsController(this.settings),
+         
             peopleView = new PeopleView(),
             peopleController = new PeopleController();
 

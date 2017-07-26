@@ -2,6 +2,7 @@
 
 let Group = require('../project/js/model/Group.js'),
     Settings = require('../project/js/model/Settings.js'),
+	Event = require('../project/js/Event.js'),
     App = require('../project/js/model/App.js'),
     Direction = require('../project/js/model/Direction.js'),
     Filter = require('../project/js/model/Filter.js'),
@@ -14,6 +15,7 @@ let Group = require('../project/js/model/Group.js'),
 
     EditGroupView = require('../project/js/view/editGroupView.js'),
     AddGroupView = require('../project/js/view/addGroupView.js'),
+	TestListView = require('../project/js/view/testListView.js'),
     SettingsView = require('../project/js/view/settingsView.js'),
     GroupListView = require('../project/js/view/groupListView.js'),
     GroupItemView = require('../project/js/view/groupListView.js'),

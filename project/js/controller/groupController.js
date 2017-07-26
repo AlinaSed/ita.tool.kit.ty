@@ -39,6 +39,7 @@ class GroupController {
         mediator.sub('groupSelected', this.selectGroupHandler.bind(this));
         mediator.sub('showEditGroup', this.showEditGroupHadnler.bind(this));
         mediator.sub('examModel:open', this.showEditExamModalHandler.bind(this));
+        mediator.sub('examModal:added', this.addExamsHandler.bind(this));
     }
 
     deleteGroupHandler(group) {
@@ -76,6 +77,10 @@ class GroupController {
         let examsModalView = new AddExamModalView(group);
         examsModalView.show();
     }
+
+    addExamsHandler (data) {
+        data.group.addTests(data.addedTests);
+    }; 
 }
 
 module.exports = GroupController;
