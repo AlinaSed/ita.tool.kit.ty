@@ -115,13 +115,13 @@ class SettingsView {
     renderTests (directionName) {
         let listContainer = document.querySelector('#tests-filters-container'),
             //testListContainer = document.querySelector('#TestListOfDirection'),
-            tpl = `<div>Tests<ul>`,
+            tpl = `<div class="wrapper-list" >Tests<ul class="t-f-list">`,
             buttonAddTest,
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
-        direction.testList.forEach((test) => tpl += `<li>${test.name}</li>`);
-        tpl += `</ul><button class="add-test">Add test</button></div>`;
+        direction.testList.forEach((test) => tpl += `<li><a>${test.name}</a></li>`);
+        tpl += `</ul><i class="fa fa-plus-circle add-test" aria-hidden="true"></i></div>`;
         listContainer.innerHTML = tpl;  
 
         buttonAddTest = document.querySelector('.add-test');
@@ -133,13 +133,13 @@ class SettingsView {
     renderFilters (directionName) {
         let listContainer = document.querySelector('#tests-filters-container'),
             //filterListContainer = document.querySelector('#FilterListOfDirection'),
-            tpl = `<div>Filters<ul>`,
+            tpl = `<div class="wrapper-list">Filters<ul class="t-f-list">`,
             buttonAddFilter,
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
-        direction.filterList.forEach((filter) => tpl += `<li>${filter.name}</li>`);
-        tpl += `</ul><button class="add-filter">Add filter</button></div>`;
+        direction.filterList.forEach((filter) => tpl += `<li><a>${filter.name}</a></li>`);
+        tpl += `</ul><i class="fa fa-plus-circle add-filter" aria-hidden="true"></i></div>`;
         listContainer.innerHTML = tpl;  
         buttonAddFilter = document.querySelector('.add-filter');
 

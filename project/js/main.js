@@ -6,6 +6,7 @@ let Group = require('./model/Group.js'),
     Direction = require('./model/Direction.js'),
     Filter = require('./model/Filter.js'),
     Test = require('./model/Test.js'),
+    Day = require('./model/Day.js'),
     GroupController = require('./controller/groupController.js'),
     SettingsController = require('./controller/settingsController.js'),
     TestListController = require('./controller/testListController.js'),
@@ -25,7 +26,6 @@ function init() {
     let app = new App();
     app.groupList = prefilledGroups;
     app.settings.directionList = prefilledDirection;
-    debugger;
     app.start();
 }
 

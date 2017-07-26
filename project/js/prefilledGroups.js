@@ -2,6 +2,7 @@
 
 let Group = require('./model/Group.js'),
 	Test = require('./model/Test.js'),
+    Day = require('./model/Day.js'),
     prefilledDirection = require('./prefilledDirection.js');
 
 let prefilledGroups;

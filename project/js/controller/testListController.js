@@ -16,7 +16,7 @@ class TestListController {
         group.testList.forEach((currentTest) => {
             let examView = new ExamItemView(currentTest);
             examView.render();
-        })
+        });
     }
 
 }
