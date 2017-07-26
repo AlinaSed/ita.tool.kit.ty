@@ -1,6 +1,6 @@
 'use strict';
 
-let tpl = require('./tpl/tplModalSettings.js'),
+let tplSettings = require('./tpl/tpl.settings.js'),
     mediator = require('../Mediator.js');
 
 class SettingsView {
@@ -20,7 +20,7 @@ class SettingsView {
 
         darkLayer.id = 'shadow'; //darkLayer.classList.add('shadow');
         document.body.appendChild(darkLayer);
-        this.modalContainer.innerHTML = tpl.settingsModal;
+        this.modalContainer.innerHTML = tplSettings.Modal; 
         this.modalContainer.style.display = 'block'; 
         buttonClose = this.modalContainer.querySelector('.close-button');
 
@@ -36,7 +36,7 @@ class SettingsView {
     renderDirectionNames () {
         let directionSelect = this.modalContainer.querySelector('.direction-select');
 
-        directionSelect.innerHTML = tpl.settingsDropDown(this.settings.directionList);
+        directionSelect.innerHTML = tplSettings.DropDown(this.settings.directionList);
     }
 
     activate () {
@@ -76,7 +76,7 @@ class SettingsView {
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
-        listContainer.innerHTML = tpl.settingsTests(direction.testList);  
+        listContainer.innerHTML = tplSettings.Tests(direction.testList);  
 
         buttonAddTest = this.modalContainer.querySelector('.add-test');
         buttonAddTest.addEventListener('click', () => { 
@@ -86,7 +86,7 @@ class SettingsView {
                 newTestMaxGrade, 
                 buttonSaveTest;
 
-            addTestContainer.innerHTML = tpl.settingsAddTest;
+            addTestContainer.innerHTML = tplSettings.AddTest;
             newTestName = addTestContainer.querySelector('.new-test-name');
             newTestMaxGrade = addTestContainer.querySelector('.new-test-max');
             buttonSaveTest = addTestContainer.querySelector('.save-new-test');
@@ -108,7 +108,7 @@ class SettingsView {
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
-        listContainer.innerHTML = tpl.settingsFilters(direction.filterList);  
+        listContainer.innerHTML = tplSettings.Filters(direction.filterList);  
         buttonAddFilter = this.modalContainer.querySelector('.add-filter');
 
         buttonAddFilter.addEventListener('click', () => {
