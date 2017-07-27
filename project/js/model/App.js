@@ -9,6 +9,7 @@ let Settings = require('./Settings.js'),
     SettingsController = require('../controller/settingsController.js'),
     TestListController = require('../controller/testListController.js'),
     FilterController = require('../controller/filterController.js'),
+    ResultController = require('../controller/resultController.js'),
     mediator = require('../Mediator.js')
 
 class App {
@@ -29,7 +30,8 @@ class App {
             settingsController = new SettingsController(this.settings),
             filterController = new FilterController(),
             peopleView = new PeopleView(),
-            peopleController = new PeopleController();
+            peopleController = new PeopleController(),
+            resultController = new ResultController();
 
         groupController.renderGroupList();
         this.activate();
