@@ -4,7 +4,7 @@ let webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-	entry: /*[*/'./build/main.js'/*, './project/scss/style.scss']*/,
+	entry: ['./build/main.js', './project/scss/style.scss'],
 	output: {
 		filename: 'build.js',
         //absolute path
@@ -34,12 +34,12 @@ module.exports = {
         //skip the emitting phase whenever there are errors while compiling
         new webpack.NoEmitOnErrorsPlugin(),
 
-/*
+
         new ExtractTextPlugin({ // define where to save the file
         filename: 'build.css',
         //generate single css file for the whole bundle
         allChunks: true
-        }) */
+        }) 
         ],
 
  /*   
@@ -59,8 +59,7 @@ module.exports = {
     */
 
     module: {
-        rules: [
-        /*
+ /*
             {
                 enforce: "pre",
                 test: /\.js$/,
@@ -80,31 +79,12 @@ module.exports = {
                 }
             },
 
-/*
+
             { // sass / scss loader for webpack
                 test: /\.(sass|scss)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-            },
+            }
 
-            {
-                test: /\.(png|jpg)$/i,
-                loaders: [
-                {
-                    loader: 'image-webpack-loader',
-                    loader: 'file?hash=sha512&digest=hex&name=images/[name].[hash:8].[ext]',
-                    query: {
-                        progressive: true,
-                        optimizationLevel: 7,
-                        interlaced: false,
-                pngquant: {
-            quality: '65-90',
-            speed: 4
-          }
-        }
-      }
-    ]
-  }
-  */
        ]
     }
  
