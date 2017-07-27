@@ -1,14 +1,16 @@
 'use strict';
 
-let tplSettings = require('./tpl.settings.js');
+let tplSettings = require('./tpl.settings.js'),
+    settingsTestsForFilter = require('./settingsTestsForFilter.tpl.js');
+
 
 let settingsAddFilter = (direction) => {
     return `
         <div class="settings-add-filter"> 
             <div class="add-filter-containerA">
-                <div> ${direction.name} tests:</div>
+                <div> Direction: ${direction.name} </div>
                 <div class="tests-container">
-                    tplSettings.Tests(direction.testList)
+                    ${settingsTestsForFilter(direction.testList)}
                 </div>
             </div>
             <div class="add-filter-containerA tests-container">
@@ -26,7 +28,7 @@ let settingsAddFilter = (direction) => {
                     <option value="less"> less </option>
                     <option value="equal"> equal </option>
                 </select>
-                <input type="text" class="new-filter-grade" placeholder="Grade" size="2">
+                <input type="text" class="filter-grade" placeholder="Grade" size="2">
                 <button class="save-new-filter">save</button>
             </div>
         </div>

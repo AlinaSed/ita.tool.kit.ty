@@ -57,13 +57,7 @@ class SettingsView {
             let selectedDirectionName;
 
             selectedDirectionName = elSelect.options[elSelect.selectedIndex].value;
-
-            if (selectedDirectionName === 'addDirection') {
-                
-            } else {
-                this.renderTests(selectedDirectionName);
-            }
-            
+            this.renderTests(selectedDirectionName);
         }, false);
 
         buttonTests.addEventListener('click', () => {
@@ -81,30 +75,20 @@ class SettingsView {
 
     renderTests (directionName) {
         let listContainer = this.modalContainer.querySelector('.tests-filters-container'),
-            buttonAddTest,
+            testNameInput,
+            buttonSaveTest,
             direction;
 
         direction = this.settings.directionList.find((direction) => directionName === direction.name);
         listContainer.innerHTML = tplSettings.Tests(direction.testList);  
 
-        buttonAddTest = this.modalContainer.querySelector('.add-test');
-        buttonAddTest.addEventListener('click', () => { 
-            console.log('Add Test');
-            let addTestContainer = this.modalContainer.querySelector('.new-test-input'),
-                newTestName, 
-                newTestMaxGrade, 
-                buttonSaveTest;
-
-            addTestContainer.innerHTML = tplSettings.AddTest;
-            newTestName = addTestContainer.querySelector('.new-test-name');
-            newTestMaxGrade = addTestContainer.querySelector('.new-test-max');
-            buttonSaveTest = addTestContainer.querySelector('.save-new-test');
-
-            buttonSaveTest.addEventListener('click', () => {
-                direction.addTest(newTestName.value);
-                mediator.pub('test:created', directionName);
-            }, false);
-
+        buttonSaveTest = this.modalContainer.querySelector('.save-new-test');
+        testNameInput = this.modalContainer.querySelector('.new-test-name');
+        
+        testNameInput.addEventListener('focus', () => buttonSaveTest.disabled = false);
+        buttonSaveTest.addEventListener('click', () => {
+            direction.addTest(testNameInput.value);
+            mediator.pub('test:created', directionName);
         }, false);
     }
 
@@ -125,3 +109,35 @@ class SettingsView {
 }
 
 module.exports = SettingsView;
+
+
+
+
+/*
+    renderTests (directionName) {
+        let listContainer = this.modalContainer.querySelector('.tests-filters-container'),
+            buttonAddTest,
+            direction;
+
+        direction = this.settings.directionList.find((direction) => directionName === direction.name);
+        listContainer.innerHTML = tplSettings.Tests(direction.testList);  
+
+        buttonAddTest = this.modalContainer.querySelector('.add-test');
+        buttonAddTest.addEventListener('click', () => { 
+            let addTestContainer = this.modalContainer.querySelector('.new-test-input'),
+                testNameInput, 
+                newTestMaxGrade, 
+                buttonSaveTest;
+
+            addTestContainer.innerHTML = tplSettings.AddTest;
+            testNameInput = addTestContainer.querySelector('.new-test-name');
+            newTestMaxGrade = addTestContainer.querySelector('.new-test-max');
+            buttonSaveTest = addTestContainer.querySelector('.save-new-test');
+
+            buttonSaveTest.addEventListener('click', () => {
+                direction.addTest(testNameInput.value);
+                mediator.pub('test:created', directionName);
+            }, false);
+
+        }, false);
+    }*/

@@ -26,6 +26,7 @@ class SettingsController {
         mediator.sub('open:add-filter-modal', (direction) => {
             this.showAddFilterModal(direction);
         });
+        mediator.sub('filter:created', () => this.showSettings());
     }
 
     showSettings () {

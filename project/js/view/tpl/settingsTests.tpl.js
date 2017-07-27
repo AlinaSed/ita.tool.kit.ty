@@ -11,9 +11,12 @@ let settingsTests = (testList) => {
                 ${tpl}
             </ul>
             <div class="new-test-input"> </div>
-            <i class="fa fa-plus-circle add-test" aria-hidden="true"></i>
+            <input type="text" class="new-test-name" placeholder="New test" size="8">
+            <button disabled class="save-new-test">Add</button>
         </div>
     `; 
 };
 
 module.exports = settingsTests;
+
+/* <i class="fa fa-plus-circle add-test" aria-hidden="true"></i>*/
