@@ -8,14 +8,15 @@ class SettingsView {
         this.settings = settings;
         this.modalContainer = document.querySelector('.modal-container');
 
-        this.showSettingsWindow();
+     /*   this.showSettingsWindow();
         this.renderDirectionNames();
-        this.activate();
+        this.activate();*/
     }
 
     showSettingsWindow () {
         let darkLayer = document.createElement('div'),
             buttonClose,
+            buttonAddDirection,
             closeSettings;
 
         darkLayer.id = 'shadow'; //darkLayer.classList.add('shadow');
@@ -23,14 +24,22 @@ class SettingsView {
         this.modalContainer.innerHTML = tplSettings.Modal; 
         this.modalContainer.style.display = 'block'; 
         buttonClose = this.modalContainer.querySelector('.close-button');
+        buttonAddDirection = this.modalContainer.querySelector('.add-direction');
 
         closeSettings = () => {
             darkLayer.parentNode.removeChild(darkLayer);
             this.modalContainer.style.display = 'none';
         };
         
-        buttonClose.addEventListener('click', closeSettings, false);
         darkLayer.addEventListener('click', closeSettings, false);
+        buttonClose.addEventListener('click', closeSettings, false);
+        buttonAddDirection.addEventListener('click', () => {
+            let inputNewDirection = this.modalContainer.querySelector('.input-new-direction');
+
+            this.settings.addDirection(inputNewDirection.value);
+            inputNewDirection.value = '';
+            mediator.pub('direction:created');
+        }, false);
     }
 
     renderDirectionNames () {
@@ -92,11 +101,8 @@ class SettingsView {
             buttonSaveTest = addTestContainer.querySelector('.save-new-test');
 
             buttonSaveTest.addEventListener('click', () => {
-                let name = newTestName.value,
-                    maxGrade = newTestMaxGrade.value;
-
-                mediator.pub('group:created', {name, maxGrade});
-                console.log(name, maxGrade);
+                direction.addTest(newTestName.value);
+                mediator.pub('test:created', directionName);
             }, false);
 
         }, false);
@@ -113,6 +119,7 @@ class SettingsView {
 
         buttonAddFilter.addEventListener('click', () => {
             console.log('add filter');
+            mediator.pub('open:add-filter-modal', direction);
         }, false);
     }
 }

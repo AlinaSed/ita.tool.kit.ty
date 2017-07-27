@@ -1,61 +1,43 @@
 'use strict';
 
 let SettingsView = require('../view/settingsView.js'),
+    SettingsAddFilterView = require('../view/SettingsAddFilterView.js'),
     mediator = require('../Mediator.js');
 
 class SettingsController {
     constructor (settings) {
+
+        // do I need this line?
         this.settings = settings;
+        this.view = new SettingsView(settings);
         
         this.activate();
     }
 
     activate () {
         mediator.sub('OpenSettings', () => this.showSettings());
-        mediator.sub('group:created', (newTest) => {
-            console.log('hello from controller');
+        mediator.sub('test:created', (directionName) => {
+            this.view.renderTests(directionName);
+        });
+        mediator.sub('direction:created', () => {
+            this.view.renderDirectionNames();
+            this.view.activate();
+        });
+        mediator.sub('open:add-filter-modal', (direction) => {
+            this.showAddFilterModal(direction);
         });
     }
 
     showSettings () {
-        let view = new SettingsView(this.settings);
+        this.view.showSettingsWindow();
+        this.view.renderDirectionNames();
+        this.view.activate();
+    }
+
+    showAddFilterModal (direction) {
+        console.log(direction);
+        let viewAddFilter = new SettingsAddFilterView(direction);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*  getDirectionNames () {
-    let names = [];
-        
-        this.direction.forEach((item) => {
-            names.push[item.name];
-        });
-        return names;
-    }
-
-    getDirectionTests (name) {
-    let result = [];
-        
-        this.direction.forEach((item) => {
-            result = item.testList;
-        });
-
-        return result;
-    }*/
 
 module.exports = SettingsController;

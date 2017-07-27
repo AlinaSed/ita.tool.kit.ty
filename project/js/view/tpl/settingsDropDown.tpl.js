@@ -13,10 +13,7 @@ let settingsDropDown = (directionList) => {
 
     return `
             <select class="settings-directions-select direction"> 
-                ${optionList} 
-                <option value="addDirection"> 
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> 
-                </option>   
+                ${optionList}
             </select>
     `; 
 };
