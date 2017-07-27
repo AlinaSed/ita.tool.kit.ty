@@ -240,10 +240,8 @@ tpl.editGroupTestModal = `<div class="modal fade display in edit-group-test-moda
                         {test-list}
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                    <i id="add-group" class="add-button fa fa-plus-circle add-exam-btn" aria-hidden="true"></i>
-                            </span>
+                            <input type="text" class="form-control add-test-input">
+                            <i id="add-group" class="add-button fa fa-plus-circle add-exam-btn" aria-hidden="true"></i>
                             </div>
                         </div> 
                     <div class="modal-footer">
@@ -251,7 +249,7 @@ tpl.editGroupTestModal = `<div class="modal fade display in edit-group-test-moda
                         <button type="button" class="btn btn-default close-edit-test-btn" >Close</button>
                     </div>
                 </div>
-
+  
             </div>
         </div>
         `;

@@ -14,7 +14,7 @@ class AddExamModalView extends BaseModalView {
 
     get selectors() {
         return {
-            examsContainer: '.edit-group-test-modal .test-list',
+            examsContainer: '.test-list .list-group',
             saveExamsBtn: '.save-new-exams-btn',
             modalBackdrop: '.modal-backdrop',
             closeBtn: '.close-edit-test-btn',
@@ -49,11 +49,13 @@ class AddExamModalView extends BaseModalView {
     }
 
     getTestList() {
-        let testListOption = '';
+        let testListOption = '<ul class="list-group">';
 
         this.model.testList.forEach((test) => {
-            testListOption += `<p>${test.name}</p>`;
+            testListOption += `<li class ="list-group-item">${test.name}</li>`;
         });
+
+        testListOption += '</ul>';
 
         return testListOption;
     }
@@ -61,7 +63,7 @@ class AddExamModalView extends BaseModalView {
     addNewExamHandler() {
         let testInputValue = document.querySelector(this.selectors.examInput).value,
             testInput = document.querySelector(this.selectors.examInput),
-            testInputArea = `<p>${testInputValue}</p>`,
+            testInputArea = `<li class ="list-group-item">${testInputValue}</li>`,
             newTest = new Test(testInputValue);
         testInput.value = '';
 
