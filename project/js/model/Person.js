@@ -1,9 +1,9 @@
 'use strict';
 
 class Person {
-    constructor (name, lastName, email) {
+    constructor (name, surname, email) {
         this.name = name;
-        this.lastName = lastName;
+        this.surname = surname;
         this.email = email;
     }
 }
