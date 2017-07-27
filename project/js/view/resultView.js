@@ -23,8 +23,8 @@ class ResultView {
         table += '</table>'
 
         this.section.innerHTML = 
-                                `<h4>People</h4>
-                                    <div>${table}</div>`;
+            `<h4>People</h4>
+            <div>${table}</div>`;
     }
 }
 
