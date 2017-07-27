@@ -17,7 +17,8 @@ class GroupItemView {
             testListContainer: '#test-list',
             filterList: '.filter-list',
             groupEditExams: '.group-edit-exams',
-            modalBody: '.modal-body'
+            modalBody: '.modal-body',
+            daySection: '.test-days'
         };
     }
 
@@ -28,6 +29,7 @@ class GroupItemView {
         groupItem.addEventListener('click', this.selectGroupItemHandler.bind(this));
         groupItem.addEventListener('contextmenu', this.editGroupViewHandler.bind(this));
         groupEditExams.addEventListener('click', this.editExamModalHandler.bind(this));
+        groupItem.addEventListener('click', this.selectGroupForDay.bind(this));
     }
 
     render() {
@@ -51,6 +53,10 @@ class GroupItemView {
     editGroupViewHandler(event) {
         event.preventDefault();
         mediator.pub('showGroupContextMenu', this.currentGroup);
+    }
+    	    selectGroupForDay(event) {
+        document.querySelector(this.selectors.daySection).innerHTML = '';
+        mediator.pub('group:selected', this.currentGroup);
     }
 }
 
