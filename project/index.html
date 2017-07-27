@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <link href="libs/font-awesome.css" rel="stylesheet">
+    <link href="../build/build.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
     <script src='libs/jquery.min.js'></script>
@@ -22,8 +23,7 @@
 </head>
 
 <body>
-    <!-- <header> -->
-    <!-- <div class="pre-load">
+   <!-- <div class="pre-load">
         <div class="logo">
             <img src="images/logo.png" alt="Логотип"/>
         </div>
@@ -35,10 +35,15 @@
                     <div class="col-xs-6">
                         <section id="group-section" class="clearfix"></section>
                         <section id="day-section">
-                            <!--this button shouldn't be here, it's temporary-->
-                            <button class="button-open-people"></button>
+                           <div class="title-section">Test Day</div>
+                            <div class="test-days clearfix">
+
+                            </div>
+                            <button class="button-open-people">+</button>
                         </section>
                         <section id="test-section">
+                            <div class="title-section">Test list</div>
+                            <div id="test-list" class="clearfix"></div>
                         </section>
                         <section id="filter-section" class="clearfix"></section>
                     </div>
@@ -48,7 +53,11 @@
                 </div>
             </div>
         </main>
-
+			        <footer>
+            <span>© SoftServe Dp-117 JS, 2010-2017</span>
+            <img src='images/kitty.jpg' alt='We are kitty'/>
+        </footer>
+		</div>
         <div class="modal-container modalwin"></div>       
 
    </body>
