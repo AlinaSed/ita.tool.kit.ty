@@ -12,7 +12,9 @@ class SettingsController {
 
     activate () {
         mediator.sub('OpenSettings', () => this.showSettings());
-
+        mediator.sub('group:created', (newTest) => {
+            console.log('hello from controller');
+        });
     }
 
     showSettings () {
