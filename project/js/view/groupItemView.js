@@ -5,12 +5,12 @@ let mediator = require('../Mediator.js'),
 
 
 class GroupItemView {
-    constructor(group) {
+    constructor (group) {
         this.container = document.querySelector(this.selectors.groupContainer);
         this.currentGroup = group;
     }
 
-    get selectors() {
+    get selectors () {
         return {
             groupContainer: '#group-container',
             groupItem: '.group-item',
@@ -22,7 +22,7 @@ class GroupItemView {
         };
     }
 
-    activate(template) {
+    activate (template) {
         let groupItem = template.querySelector(this.selectors.groupItem),
             groupEditExams = template.querySelector(this.selectors.groupEditExams);
 
@@ -32,7 +32,7 @@ class GroupItemView {
         groupItem.addEventListener('click', this.selectGroupForDay.bind(this));
     }
 
-    render() {
+    render () {
         let groupItemTemplate = document.createElement('div');
         groupItemTemplate.innerHTML = tpl.groupItem.replace('{groupName}', this.currentGroup.name);
 
@@ -40,21 +40,21 @@ class GroupItemView {
         this.activate(groupItemTemplate);
     }
 
-    selectGroupItemHandler(event) {
+    selectGroupItemHandler (event) {
         document.querySelector(this.selectors.testListContainer).innerHTML = '';
         document.querySelector(this.selectors.filterList).innerHTML = '';
         mediator.pub('groupSelected', this.currentGroup);
     }
 
-    editExamModalHandler() {
+    editExamModalHandler () {
         mediator.pub('examModel:open', this.currentGroup);
     }
 
-    editGroupViewHandler(event) {
+    editGroupViewHandler (event) {
         event.preventDefault();
-        mediator.pub('showGroupContextMenu', this.currentGroup);
+        mediator.pub('groupContextMenu:show', this.currentGroup);
     }
-    	    selectGroupForDay(event) {
+    	    selectGroupForDay (event) {
         document.querySelector(this.selectors.daySection).innerHTML = '';
         mediator.pub('group:selected', this.currentGroup);
     }

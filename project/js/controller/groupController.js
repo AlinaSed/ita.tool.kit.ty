@@ -27,16 +27,15 @@ class GroupController {
 
     addNewGroup(group) {
         let view = new GroupItemView(group);
-        mediator.pub('addSelectedGroup', group);
         view.render();
     }
 
     activate() {
-        mediator.sub('openAddGroupdDialog', this.showAddGroupHandler.bind(this));
+        mediator.sub('addGroupdDialog:open', this.showAddGroupHandler.bind(this));
         mediator.sub('group:saved', this.addNewGroupHandler.bind(this));
         mediator.sub('group:deleted', this.deleteGroupHandler.bind(this));
-        mediator.sub('showGroupContextMenu', this.contextMenuHandler.bind(this));
-        mediator.sub('groupSelected', this.selectGroupHandler.bind(this));
+        mediator.sub('groupContextMenu:show', this.contextMenuHandler.bind(this));
+        mediator.sub('group:selected', this.selectGroupHandler.bind(this));
         mediator.sub('editGroup:show', this.showEditGroupHadnler.bind(this));
         mediator.sub('examModel:open', this.showEditExamModalHandler.bind(this));
         mediator.sub('testModal:added', this.addTestHandler.bind(this));

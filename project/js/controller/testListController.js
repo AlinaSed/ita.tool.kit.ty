@@ -10,7 +10,7 @@ class TestListController {
     }
 
     activate() {
-        mediator.sub('groupSelected', this.groupSelectedHandler.bind(this));
+        mediator.sub('group:selected', this.groupSelectedHandler.bind(this));
     }
 
     groupSelectedHandler(group) {

@@ -6,11 +6,11 @@ let mediator = require('../../Mediator.js'),
     BaseModalView = require('../../view/modal/baseModalView.js');
 
 class AddGroupView extends BaseModalView {
-    constructor(settings) {
+    constructor (settings) {
         super(settings, tpl.addGroupModal);
     }
 
-    get selectors() {
+    get selectors () {
         return {
             directionDropDown: '.direction-dropdown',
             closeButton: '.close-group-btn',
@@ -19,16 +19,16 @@ class AddGroupView extends BaseModalView {
         };
     }
 
-    collectSelectors() {
+    collectSelectors () {
         this.save = this.modalContainer.querySelector(this.selectors.save);
         this.closeButton = this.modalContainer.querySelector(this.selectors.closeButton);
     }
 
-    initControls() {
+    initControls () {
         this.fillDirectionDropDown();
     }
 
-    saveGroup(event) {
+    saveGroup (event) {
         event.preventDefault();
 
         let directionValue = this.getDropDownValue(this.selectors.directionDropDown),
@@ -42,17 +42,17 @@ class AddGroupView extends BaseModalView {
         this.hide();
     }
 
-    activate() {
+    activate () {
         this.save.addEventListener('click', this.saveGroup.bind(this));
         this.closeButton.addEventListener('click', this.hide.bind(this));
     }
 
-    diactivate() {
+    diactivate () {
         this.save.removeEventListener('click', this.saveGroup.bind(this));
         this.closeButton.removeEventListener('click', this.hide.bind(this));
     }
 
-    fillDirectionDropDown() {
+    fillDirectionDropDown () {
         let options = '',
             directionDropDown = this.modalContainer.querySelector(this.selectors.directionDropDown);
 

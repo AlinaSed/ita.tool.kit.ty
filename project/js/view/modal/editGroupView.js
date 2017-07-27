@@ -3,12 +3,12 @@ let mediator = require('../../Mediator.js'),
     tpl = require('../../view/tpl/tplModalSettings.js');
 
 class EditGroupView {
-    constructor(settings) {
+    constructor (settings) {
         this.body = document.body;
         this.settings = settings;
     }
 
-    get selectors() {
+    get selectors () {
         return {
             directionDropDown: '.add-group-modal .direction-dropdown',
             closeButton: '.edit-group-modal .close-group-btn',
@@ -19,20 +19,20 @@ class EditGroupView {
         };
     }
 
-    collectSelectors() {
+    collectSelectors () {
         this.modal = document.querySelector(this.selectors.modal);
         this.save = document.querySelector(this.selectors.save);
         this.closeButton = document.querySelector(this.selectors.closeButton);
     }
 
-    show() {
+    show () {
         this.addLayover();
         this.body.insertAdjacentHTML('beforeEnd', tpl.addGroupModal);
         this.fillDirectionDropDown();
         this.activate();
     }
 
-    saveGroup(event) {
+    saveGroup (event) {
         event.preventDefault();
 
         let directionDropDown = document.querySelector(this.selectors.directionDropDown),
@@ -42,7 +42,7 @@ class EditGroupView {
                 return value.name === directionValue;
             });
 
-        mediator.pub('saveGroup', {
+        mediator.pub('group:saved', {
             groupdName: groupNameValue,
             direction: selectedDirection
         });
@@ -50,7 +50,7 @@ class EditGroupView {
         this.hide();
     }
 
-    hide() {
+    hide () {
         let modalBackdrop = document.querySelector(this.selectors.modalBackdrop);
 
         this.diactivate();
@@ -58,23 +58,23 @@ class EditGroupView {
         this.modal.remove();
     }
 
-    activate() {
+    activate () {
         this.save.addEventListener('click', this.saveGroup.bind(this));
         this.closeButton.addEventListener('click', this.hide.bind(this));
     }
 
-    diactivate() {
+    diactivate () {
         this.save.removeEventListener('click', this.saveGroup.bind(this));
         this.closeButton.removeEventListener('click', this.hide.bind(this));
     }
 
-    addLayover() {
+    addLayover () {
         let modalBackdrop = `<div id="div" class="modal-backdrop fade in"></div>`;
 
         this.body.insertAdjacentHTML('beforeEnd', modalBackdrop);
     }
 
-    fillDirectionDropDown() {
+    fillDirectionDropDown () {
         let options = '',
             directionDropDown = document.querySelector(this.selectors.directionDropDown);
 

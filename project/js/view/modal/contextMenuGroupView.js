@@ -5,11 +5,11 @@ let mediator = require('../../Mediator.js'),
     BaseModalView = require('../../view/modal/baseModalView.js');
 
 class ContextMenuGroupView extends BaseModalView {
-    constructor(group) {
+    constructor (group) {
         super(group, tpl.groupContextMenu);
     }
 
-    get selectors() {
+    get selectors () {
         return {
             closeButton: '.close-group-context-menu',
             deleteGroupBtn: '.delete-group-btn',
@@ -17,28 +17,28 @@ class ContextMenuGroupView extends BaseModalView {
         };
     }
 
-    collectSelectors() {
+    collectSelectors () {
         this.deleteGroupBtn = this.modalContainer.querySelector(this.selectors.deleteGroupBtn);
         this.closeButton = this.modalContainer.querySelector(this.selectors.closeButton);
         this.editGroupBtn = this.modalContainer.querySelector(this.selectors.editGroupBtn);
     }
 
-    activate() {
+    activate () {
         this.deleteGroupBtn.addEventListener('click', this.deleteGroupHandler.bind(this));
         this.closeButton.addEventListener('click', this.hide.bind(this));
         this.editGroupBtn.addEventListener('click', this.editGroupHandler.bind(this));
     }
 
-    diactivate() {
+    diactivate () {
         this.closeButton.removeEventListener('click', this.hide.bind(this));
     }
 
-    deleteGroupHandler(event) {
+    deleteGroupHandler (event) {
         mediator.pub('group:deleted', this.model);
         this.hide();
     }
 
-    editGroupHandler() {
+    editGroupHandler () {
         mediator.pub('editGroup:show', this.model);
         this.hide();
     }

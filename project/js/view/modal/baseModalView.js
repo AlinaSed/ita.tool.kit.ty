@@ -1,13 +1,13 @@
 'use srtict';
 
 class BaseModalView {
-    constructor(model, template) {
+    constructor (model, template) {
         this.model = model;
         this.body = document.body;
         this.template = this.mapTemplate(template);
     }
 
-    get baseSelectors() {
+    get baseSelectors () {
         return {
             cancelBtn: '.cancel-btn',
             saveBtn: '.save-btn',
@@ -15,7 +15,7 @@ class BaseModalView {
         };
     }
 
-    show() {
+    show () {
         this.addOverlay();
         this.modalContainer = document.createElement('div');
         this.modalContainer.innerHTML = this.template;
@@ -27,32 +27,32 @@ class BaseModalView {
         this.activate();
     }
 
-    hide() {
+    hide () {
         this.diactivate();
         this.layover.remove();
         this.modalContainer.remove();
     }
 
-    collectSelectors() {}
+    collectSelectors () {}
 
-    initControls() {}
+    initControls () {}
 
-    mapTemplate(template) {
+    mapTemplate (template) {
         return template;
     }
 
-    addOverlay() {
+    addOverlay () {
         this.body.insertAdjacentHTML('beforeEnd', `<div class="modal-backdrop fade in"></div>`);
         this.layover = document.querySelector(this.baseSelectors.layover);
     }
 
-    getDropDownValue(selector) {
+    getDropDownValue (selector) {
         let dropDown = this.modalContainer.querySelector(selector);
 
         return dropDown.options[dropDown.selectedIndex].text;
     }
 
-    getMultipleDropDownValues(select) {
+    getMultipleDropDownValues (select) {
         let result = [],
             options = select && select.options,
             length = options.length,
