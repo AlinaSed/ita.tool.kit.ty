@@ -7,8 +7,8 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("../images/bg.jpg");
-    background-size: cover;
+    background: #00A3DD;
+    box-shadow: inset 0 0 120px 20px rgba(0,0,0,0.9)
 }
 
 main {
@@ -56,7 +56,7 @@ main section {
     right: 1%;
 }
 
-.title-section {
+.titleSection, .title-section {
     font-size: 26px;
     text-align: left;
 }
@@ -106,7 +106,7 @@ footer img {
     margin-top: 20px;
 }
 
- .group-item {
+.group-item {
     padding: 0px;
     margin-left: 10px;
     height: 120px;
@@ -120,7 +120,7 @@ footer img {
     //font-size: 15px;
 }
 
-#group-section .group-item:hover {
+.group-item:hover {
     background-color: lightgray;
 }
 
@@ -259,7 +259,7 @@ footer img {
     border-radius: 3px;
     padding-right: 35px;
     overflow: hidden;
-    background: #fafafa url(../images/caret-down.png) no-repeat 95%;
+   
 }
 
 .direction-select select {
@@ -269,7 +269,7 @@ footer img {
     box-shadow: none;
     background: transparent;
     background-image: none;
-    -webkit-appearance: none;
+  
 }
 
 .direction-select select:focus {
@@ -291,18 +291,102 @@ footer img {
     background-color: lightgray;
 }
 
-.time-slot{
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 28px;
-    border-radius: 3px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+
+/*  editGroupTestModal */
+
+.edit-group-test-modal .grade-input {
+    width: 30%;
 }
 
+
+/*  editGroupTestModal end*/
+
+
+/*  edit group modal  */
+
+.context-menu-group-modal .modal-body {
+    text-align: center;
+}
+
+.context-menu-group-modal .edit-group-btn {
+    margin-left: 100px;
+}
+
+
+/*  edit group modal end  */
+
+
+/*  filter section  */
+
+#filter-section {
+    min-height: 150px;
+    position: relative;
+}
+
+#filter-section .filter-controls {
+    text-align: right;
+}
+
+#filter-section .add-custom-filter {
+    margin-right: 49px;
+}
+
+#filter-section .arrow-controls {
+    display: inline-block;
+}
+
+#filter-section .filter-arrow {
+    font-size: 25px;
+    display: block;
+}
+
+#filter-section .filter-item {
+    display: inline-block;
+}
+
+#filter-section .filter-list {
+    font-size: 18px;
+    text-align: center;
+}
+
+#filter-section .btn-toggle {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/*  filter section end */
+
+
+/*   add asign Users */
+
+.people-modal {
+    width: 400px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.people-input-area {
+    width: 100%;
+    height: 400px;
+
+}
+
+/* for better view, should be deleted */
+.button-open-people {
+    width: 20px;
+    height: 50px;
+}
+
+/* for result   */
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+
+/*     the end      */
 
 /*# sourceMappingURL=main.css.map */

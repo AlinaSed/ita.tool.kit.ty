@@ -1,8 +1,8 @@
 'use strict';
 
 let Group = require('./model/Group.js'),
-    Test = require('./model/Test.js'),
-    Day = require('./model/Day.js'),
+	Test = require('./model/Test.js'),
+	Day = require('./model/Day.js'),
     prefilledDirection = require('./prefilledDirection.js');
 
 let prefilledGroups;
@@ -48,6 +48,5 @@ prefilledGroups = [
     new Group('Dp-112', prefilledDirection[1], prefilledDay[1]),
     new Group('Dp-117', prefilledDirection[2], prefilledDay[2])
 ];
-
 
 module.exports = prefilledGroups;

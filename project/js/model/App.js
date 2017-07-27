@@ -1,11 +1,15 @@
 'use strict';
 
 let Settings = require('./Settings.js'),
+    FilterListView = require('../view/filterListView.js'),
     GroupListView = require('../view/groupListView.js'),
+    PeopleView = require('../view/peopleView.js'),
     GroupController = require('../controller/groupController.js'),
+    PeopleController = require('../controller/peopleController.js'),
     SettingsController = require('../controller/settingsController.js'),
-    DayListController = require('../controller/dayListController.js'),
+	DayListController = require('../controller/dayListController.js'),
     TestListController = require('../controller/testListController.js'),
+    FilterController = require('../controller/filterController.js'),
     mediator = require('../Mediator.js')
 
 class App {
@@ -20,10 +24,14 @@ class App {
 
     start() {
         let groupListView = new GroupListView(this.settings),
+            filterListView = new FilterListView(),
             groupController = new GroupController(this.groupList, this.settings, groupListView),
             testListController = new TestListController(),
-            dayListController = new DayListController(),
-            settingsController = new SettingsController(this.settings);
+			dayListController = new DayListController(),
+            settingsController = new SettingsController(this.settings),
+            filterController = new FilterController(),
+            peopleView = new PeopleView(),
+            peopleController = new PeopleController();
 
         groupController.renderGroupList();
         this.activate();

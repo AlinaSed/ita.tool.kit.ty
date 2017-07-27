@@ -1,9 +1,10 @@
 'use strict';
 
 let webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-	entry: './build/main.js',
+	entry: ['./build/main.js', './project/scss/style.scss'],
 	output: {
 		filename: 'build.js',
         //absolute path
@@ -26,18 +27,24 @@ module.exports = {
     that was moved to the plugins section using the webpack.LoaderOptionsPlugin */
     plugins: [
         new webpack.LoaderOptionsPlugin({
-        options: {
-            emitErrors: true
-        }
-    }),
+            options: {
+                emitErrors: true
+            }
+        }),
         //skip the emitting phase whenever there are errors while compiling
-        new webpack.NoEmitOnErrorsPlugin()
-    ],
+        new webpack.NoEmitOnErrorsPlugin(),
 
 
+        new ExtractTextPlugin({ // define where to save the file
+        filename: 'build.css',
+        //generate single css file for the whole bundle
+        allChunks: true
+        }) 
+        ],
 
+ /*   
 //minification
- /*
+
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -71,7 +78,15 @@ module.exports = {
                         presets: ['es2015']
                     }
                 }
+            },
+
+
+            { // sass / scss loader for webpack
+                test: /\.(sass|scss)$/,
+                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             }
-        ]
-    }   
+
+       ]
+    }
+ 
 }

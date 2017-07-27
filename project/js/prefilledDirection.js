@@ -25,7 +25,6 @@ prefilledDirection[2].addTest('English 4', 100);
 prefilledDirection[2].addTest('Tech UI', 400);
 prefilledDirection[2].addTest('Essay JS verify', 600);
 
-
 let testsForFilter1PHP = [
         prefilledDirection[0].testList[0],
         prefilledDirection[0].testList[1],

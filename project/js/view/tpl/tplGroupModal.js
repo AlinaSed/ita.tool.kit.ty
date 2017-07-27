@@ -2,6 +2,8 @@
 
 let tpl = require('./tplModalSettings.js');
 
+
+
 tpl.addGroupModal =
     `<div class="modal fade display in add-group-modal">
             <div class="modal-dialog">
