@@ -25,10 +25,6 @@ prefilledDirection[2].addTest('English 4', 100);
 prefilledDirection[2].addTest('Tech UI', 400);
 prefilledDirection[2].addTest('Essay JS verify', 600);
 
-prefilledDirection[1].addDay('07/09/2017', '12:30');
-prefilledDirection[2].addDay('08/04/2017', '13:30');
-prefilledDirection[3].addDay('06/05/2017', '14:30');
-
 
 let testsForFilter1PHP = [
         prefilledDirection[0].testList[0],

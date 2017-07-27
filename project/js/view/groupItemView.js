@@ -13,13 +13,16 @@ class GroupItemView {
         return {
             groupContainer: '#group-container',
             groupItem: '.group-item',
-            testListContainer: '#test-list'
+            testListContainer: '#test-list',
+            daySection: '.test-days'
         };
     }
 
     activate() {
         document.querySelector(this.currentSelectedGroup).addEventListener('click', this.selectGroupItem.bind(this));
+        document.querySelector(this.currentSelectedGroup).addEventListener('click', this.selectGroupForDay.bind(this));
     }
+
 
     render() {
         let template = `<div class="group-item ${this.currentGroup.name} col-xs-2 panel panel-primary">
@@ -39,6 +42,11 @@ class GroupItemView {
     selectGroupItem(event) {
         document.querySelector(this.selectors.testListContainer).innerHTML = '';
         mediator.pub('groupSelected', this.currentGroup);
+    }
+
+    selectGroupForDay(event) {
+        document.querySelector(this.selectors.daySection).innerHTML = '';
+        mediator.pub('group:selected', this.currentGroup);
     }
 }
 

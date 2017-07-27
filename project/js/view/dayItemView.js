@@ -4,32 +4,40 @@ let mediator = require('../Mediator.js');
 
 class DayItemView {
     constructor(day) {
-        this.container = document.querySelector(this.selectors.daySection);
         this.day = day;
+        this.container = document.querySelector(this.selectors.daySection);
+        this.tplConteiner = '<div class="group-item col-xs-2 panel panel-primary">';
     }
 
-    get selectors() {
+    get selectors () {
         return {
             daySection: '.test-days'
         };
     }
 
-
-    render() {
-        let template = `<div class="test-item col-xs-2 panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">${this.day.date} </h3>
-                            <h3 class="panel-title">${this.day.time} </h3>
-                        </div>
-                        <div class="panel-body">
-                        </div>
-                        </div>`;
+    renderDay () {
+        let template = this.tplConteiner + `<div class="panel-heading"><h3 class="panel-title">${this.day.date}</h3></div>`;
 
         this.container.insertAdjacentHTML('afterBegin', template);
     }
 
-    selectGroupItem() {
-        mediator.pub('groupSelected', this.currentGroup);
+    renderTimeSlot () {
+        let btn = '<i id="add-day" class="add-button fa fa-plus-circle" aria-hidden="true"></i>',
+            slotContainer = this.container.querySelector('.group-item');
+
+        if(this.day.time){
+            this.day.time.forEach ((timeSlot)=>{
+                let template = `<div class="panel-body"><div class="time-slot">${timeSlot}</div></div>`;
+
+                slotContainer.insertAdjacentHTML ('beforeend', template);
+            });
+        }
+
+        slotContainer.insertAdjacentHTML ('afterend', btn);
+    }
+
+    selectGroupForDay () {
+        mediator.pub ('group:selected', this.currentGroup);
     }
 }
 

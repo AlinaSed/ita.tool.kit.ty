@@ -4,19 +4,19 @@ let DayItemView = require('../view/dayItemView.js'),
     mediator = require('../Mediator.js');
 
 class DayListController {
-    constructor() {
+    constructor () {
         this.activate();
     }
 
-    activate() {
-        mediator.sub('groupSelected', this.groupSelectedHandler);
+    activate () {
+        mediator.sub('group:selected', this.groupSelectedHandler);
     }
 
-    groupSelectedHandler(group) {
-        group.day.forEach((currentTest) => {
-            let dayView = new DayItemView(currentTest);
-            dayView.render();
-        });
+    groupSelectedHandler (group) {
+        let dayView = new DayItemView (group.day);
+
+        dayView.renderDay();
+        dayView.renderTimeSlot();
     }
 
 }

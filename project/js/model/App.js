@@ -4,7 +4,7 @@ let Settings = require('./Settings.js'),
     GroupListView = require('../view/groupListView.js'),
     GroupController = require('../controller/groupController.js'),
     SettingsController = require('../controller/settingsController.js'),
-    dayListController = require('../controller/dayListController.js'),
+    DayListController = require('../controller/dayListController.js'),
     TestListController = require('../controller/testListController.js'),
     mediator = require('../Mediator.js')
 
@@ -22,7 +22,7 @@ class App {
         let groupListView = new GroupListView(this.settings),
             groupController = new GroupController(this.groupList, this.settings, groupListView),
             testListController = new TestListController(),
-            dayListController = new TestListController(),
+            dayListController = new DayListController(),
             settingsController = new SettingsController(this.settings);
 
         groupController.renderGroupList();
