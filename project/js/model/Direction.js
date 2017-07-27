@@ -14,8 +14,8 @@ class Direction {
         this.testList.push(new Test(name, maxGrade));
     }
 
-    addFilter (tests, action, condition, grade) {
-        this.filterList.push(new Filter(tests, action, condition, grade));
+    addFilter(tests, action, condition, grade, name) {
+        this.filterList.push(new Filter(tests, action, condition, grade, name));
     }
 }
 

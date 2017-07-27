@@ -2,7 +2,7 @@
 
 let FilterItemView = require('../view/filterItemView.js'),
     mediator = require('../Mediator.js'),
-    AddFilterView = require('../view/addFilterView.js')
+    AddFilterView = require('../view/modal/addFilterView.js');
 
 class FilterController {
     constructor() {
@@ -13,7 +13,7 @@ class FilterController {
     activate() {
         mediator.sub('groupSelected', this.groupSelectedHandler.bind(this));
         mediator.sub('renderAddFilterView', this.renderAddFilterViewHandler.bind(this));
-        mediator.sub('filterAdded', this.addFilterHandler.bind(this));
+        mediator.sub('filter:added', this.addFilterHandler.bind(this));
     }
 
     groupSelectedHandler(group) {

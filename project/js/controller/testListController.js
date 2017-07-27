@@ -1,6 +1,6 @@
 'use strict';
 
-let ExamItemView = require('../view/examItemView.js'),
+let TestItemView = require('../view/testItemView.js'),
     mediator = require('../Mediator.js');
 
 class TestListController {

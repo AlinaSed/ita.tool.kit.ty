@@ -154,7 +154,7 @@ tpl.addFilterModal =
                                 </div>
                                 <div class="dropdown">
                                     <label for="usr">Select test:</label>
-                                    <select class="form-control test-dropdown"></select>
+                                    <select multiple class="form-control test-dropdown"></select>
                                 </div>
 
                                 <div class="dropdown">
@@ -201,11 +201,8 @@ tpl.filterSection = `
 
                             <div class="col-xs-12 filter-list"></div>
                             <div class="filter-controls">
-                                <div class="arrow-controls" style="display:none">
-                                    <i class="add-button fa fa-arrow-up filter-arrow" aria-hidden="true"></i>
-                                    <i class="add-button fa fa-arrow-down filter-arrow" aria-hidden="true"></i>
-                                </div>
-                                <i class="add-button fa fa-plus-circle add-custom-filter" aria-hidden="true"></i>
+                                
+                                <i class="add-button hide fa fa-plus-circle add-custom-filter" aria-hidden="true"></i>
 
                             </div>
 `;
@@ -215,7 +212,7 @@ tpl.filterItem = `
                                      <div class="panel-body">
                                         {filterTitle}
                                      </div>
-                                     
+                                      
                                   </div>  
                                   
                                   <div class ="toogle-controls col-xs-4">
@@ -258,9 +255,7 @@ tpl.editGroupTestModal = `<div class="modal fade display in edit-group-test-moda
             </div>
         </div>
         `;
-        
 tpl.testListView = `<div class="titleSection">Test list</div>
                     <div id="test-list" class="clearfix"></div>
                     `;
-
 module.exports = tpl;

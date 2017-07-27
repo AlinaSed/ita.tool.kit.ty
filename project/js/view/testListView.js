@@ -2,52 +2,53 @@
 
 let tpl = require('./tpl/tplModalSettings.js'),
     mediator = require('../Mediator.js'),
-    ExamItemView = require('../view/examItemView.js');
+    TestItemView = require('../view/testItemView.js');
 
 class TestListView {
-    constructor () {
+    constructor() {
         this.selectedGroup = null;
         this.container = document.querySelector(this.selectors.container);
         this.template = tpl.testListView;
         this.itemContainer = document.querySelector(this.selectors.testSection);
-        
+
         this.render();
     }
 
-	 get selectors() {
+    get selectors() {
         return {
             container: '#test-section',
             testSection: '#test-list'
         };
     }
 
-    renderTest(group){
+    renderTest(group) {
         this.selectedGroup = group;
-      
-       this.selectedGroup.testList.forEach((currentTest) => {
-            let examView = new ExamItemView(currentTest);
+
+        this.selectedGroup.testList.forEach((currentTest) => {
+            let examView = new TestItemView(currentTest);
             examView.render();
-       });
+        });
 
-        group.testAdded.attach(this.addNewExamHandler);
+        this.activate();
     }
 
-    activate(){
-         mediator.sub('groupSelected', this.selectGroupHandler.bind(this));
+    activate() {
+        if (this.selectedGroup && !this.selectedGroup.testAdded.isAttached(this.addNewExamHandler.bind(this))) {
+            this.selectedGroup.testAdded.attach(this.addNewExamHandler.bind(this));
+        }
     }
 
-    render () {
+    render() {
         this.container.innerHTML = this.template;
     }
 
-    addNewExamHandler(tests){
-        this.itemContainer.innerHTML = '';
-        tests.testList.forEach((test) => {
-            let view = new ExamItemView(test);
+    addNewExamHandler(group, tests) {
+        tests.forEach((test) => {
+            let view = new TestItemView(test);
             view.render();
         });
     }
-    
+
 }
 
 module.exports = TestListView;

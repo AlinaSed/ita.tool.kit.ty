@@ -11,15 +11,14 @@ class FilterItemView {
 
     get selectors() {
         return {
-            filterList: '.filter-list',
+            rejectedBtn: '.btn-toggle.rejected',
             activeBtn: '.btn-toggle.active',
-            rejectedBtn: '.btn-toggle.rejected'
+            filterList: '.filter-list'
         };
     }
 
-
     render() {
-        let filterTitle = this.filter.tests.name + ' ' + this.filter.action.toString() + ' ' + this.filter.condition + ' ' + this.filter.grade + '%',
+        let filterTitle = this.filter.filterName + ' ' + this.filter.action.toString() + ' ' + this.filter.condition + ' ' + this.filter.grade + '%',
             filterItemTemplate = document.createElement('div');
 
         filterItemTemplate.innerHTML = tpl.filterItem.replace('{filterTitle}', filterTitle);
@@ -41,12 +40,12 @@ class FilterItemView {
     }
 
     toogleSwithBtn(template, selector) {
-        let btns = template.querySelectorAll(selector + ' .btn');
+        let buttons = template.querySelectorAll(selector + ' .btn');
 
-        btns.forEach((btn) => {
-            btn.classList.toggle('active');
-            btn.classList.toggle('btn-primary');
-            btn.classList.toggle('btn-default');
+        buttons.forEach((button) => {
+            button.classList.toggle('active');
+            button.classList.toggle('btn-primary');
+            button.classList.toggle('btn-default');
         });
     }
 }

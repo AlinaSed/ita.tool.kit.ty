@@ -5,8 +5,10 @@ let mediator = require('../Mediator.js'),
 
 class FilterListView {
     constructor() {
+        this.selectedGroup = null;
         this.filterSection = document.querySelector(this.selectors.filterSection);
         this.render();
+        this.addFilterBtn = this.filterSection.querySelector(this.selectors.addFilterBtn);
     }
 
     get selectors() {
@@ -29,10 +31,13 @@ class FilterListView {
 
     render() {
         this.filterSection.innerHTML = tpl.filterSection;
+
         this.activate();
     }
 
-    clearFilterListHandler() {
+    clearFilterListHandler(group) {
+        this.selectedGroup = group;
+        this.addFilterBtn.classList.add('show');
         document.querySelector(this.selectors.filterList).innerHTML = '';
     }
 }

@@ -1,7 +1,8 @@
 'use strict';
 
 class Filter {
-    constructor (tests, action, condition, grade) {
+    constructor (tests, action, condition, grade, name) {
+		this.filterName = name;
         this.tests = tests;
         this.action = action;
         this.condition = condition;

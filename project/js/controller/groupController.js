@@ -1,12 +1,12 @@
 'use strict';
 
 let GroupItemView = require('../view/groupItemView.js'),
-    EditGroupView = require('../view/editGroupView.js'),
-    AddGroupView = require('../view/addGroupView.js'),
-    GroupContextMenuView = require('../view/contextMenuGroupView.js'),
+    EditGroupView = require('../view/modal/editGroupView.js'),
+    AddGroupView = require('../view/modal/addGroupView.js'),
+    GroupContextMenuView = require('../view/modal/contextMenuGroupView.js'),
     Group = require('../model/Group.js'),
     mediator = require('../Mediator.js'),
-    AddExamModalView = require('../view/addExamsModalView.js');
+    AddExamModalView = require('../view/modal/addTestModalView.js');
 
 class GroupController {
     constructor(groups, settings, groupListView) {
@@ -33,13 +33,13 @@ class GroupController {
 
     activate() {
         mediator.sub('openAddGroupdDialog', this.showAddGroupHandler.bind(this));
-        mediator.sub('saveGroup', this.addNewGroupHandler.bind(this));
-        mediator.sub('deleteGroup', this.deleteGroupHandler.bind(this));
+        mediator.sub('group:saved', this.addNewGroupHandler.bind(this));
+        mediator.sub('group:deleted', this.deleteGroupHandler.bind(this));
         mediator.sub('showGroupContextMenu', this.contextMenuHandler.bind(this));
         mediator.sub('groupSelected', this.selectGroupHandler.bind(this));
-        mediator.sub('showEditGroup', this.showEditGroupHadnler.bind(this));
+        mediator.sub('editGroup:show', this.showEditGroupHadnler.bind(this));
         mediator.sub('examModel:open', this.showEditExamModalHandler.bind(this));
-        mediator.sub('examModal:added', this.addExamsHandler.bind(this));
+        mediator.sub('testModal:added', this.addTestHandler.bind(this));
     }
 
     deleteGroupHandler(group) {
@@ -78,9 +78,9 @@ class GroupController {
         examsModalView.show();
     }
 
-    addExamsHandler (data) {
+    addTestHandler(data) {
         data.group.addTests(data.addedTests);
-    }; 
+    };
 }
 
 module.exports = GroupController;

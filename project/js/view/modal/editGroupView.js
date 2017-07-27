@@ -1,23 +1,28 @@
 'use srtict';
-let mediator = require('../Mediator.js'),
-    tpl = require('../view/tpl/tplModalSettings.js');
+let mediator = require('../../Mediator.js'),
+    tpl = require('../../view/tpl/tplModalSettings.js');
 
 class EditGroupView {
     constructor(settings) {
-
         this.body = document.body;
         this.settings = settings;
     }
 
     get selectors() {
         return {
+            directionDropDown: '.add-group-modal .direction-dropdown',
             closeButton: '.edit-group-modal .close-group-btn',
             save: '.edit-group-modal .save-group-btn',
-            modal: '.edit-group-modal',
-            directionDropDown: '.add-group-modal .direction-dropdown',
+            modalBackdrop: '.modal-backdrop',
             groupNameInput: '#group-name',
-            modalBackdrop: '.modal-backdrop'
+            modal: '.edit-group-modal'
         };
+    }
+
+    collectSelectors() {
+        this.modal = document.querySelector(this.selectors.modal);
+        this.save = document.querySelector(this.selectors.save);
+        this.closeButton = document.querySelector(this.selectors.closeButton);
     }
 
     show() {
@@ -25,27 +30,6 @@ class EditGroupView {
         this.body.insertAdjacentHTML('beforeEnd', tpl.addGroupModal);
         this.fillDirectionDropDown();
         this.activate();
-    }
-
-    hide() {
-        this.diactivate();
-        document.querySelector(this.selectors.modalBackdrop).remove();
-        document.querySelector(this.selectors.modal).remove();
-    }
-
-    activate() {
-        $(this.selectors.save).bind("click", this.saveGroup.bind(this));
-        $(this.selectors.closeButton).bind("click", this.hide.bind(this));
-    }
-
-    diactivate() {
-        $(this.selectors.save).unbind("click");
-        $(this.selectors.closeButton).unbind("click");
-    }
-
-    addLayover() {
-        let modalBackdrop = `<div id="div" class="modal-backdrop fade in"></div>`;
-        this.body.insertAdjacentHTML('beforeEnd', modalBackdrop);
     }
 
     saveGroup(event) {
@@ -64,6 +48,30 @@ class EditGroupView {
         });
 
         this.hide();
+    }
+
+    hide() {
+        let modalBackdrop = document.querySelector(this.selectors.modalBackdrop);
+
+        this.diactivate();
+        modalBackdrop.remove();
+        this.modal.remove();
+    }
+
+    activate() {
+        this.save.addEventListener('click', this.saveGroup.bind(this));
+        this.closeButton.addEventListener('click', this.hide.bind(this));
+    }
+
+    diactivate() {
+        this.save.removeEventListener('click', this.saveGroup.bind(this));
+        this.closeButton.removeEventListener('click', this.hide.bind(this));
+    }
+
+    addLayover() {
+        let modalBackdrop = `<div id="div" class="modal-backdrop fade in"></div>`;
+
+        this.body.insertAdjacentHTML('beforeEnd', modalBackdrop);
     }
 
     fillDirectionDropDown() {
