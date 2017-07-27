@@ -13,10 +13,11 @@ class DayListController {
     }
 
     groupSelectedHandler (group) {
-        let dayView = new DayItemView (group.day);
-
-        dayView.renderDay();
-        dayView.renderTimeSlot();
+        if (group.day && group.day.date) {
+            let dayView = new DayItemView (group.day);
+            dayView.renderDay();
+            dayView.renderTimeSlot();
+        }
     }
 
 }
