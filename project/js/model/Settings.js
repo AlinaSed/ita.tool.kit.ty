@@ -1,11 +1,13 @@
 'use strict';
 
+let Direction = require('./Direction.js');
+
 class Settings {
     constructor () {
         this.directionList = [];  
     }
 
-    addDirection () {
+    addDirection (name) {
         this.directionList.push(new Direction(name));
     }
 }     
