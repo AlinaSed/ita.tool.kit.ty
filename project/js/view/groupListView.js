@@ -4,7 +4,7 @@ let mediator = require('../Mediator.js'),
     tpl = require('./tpl/tplModalSettings.js');
 
 class GroupListView {
-    constructor(settings) {
+    constructor (settings) {
         this.groupSection = document.querySelector(this.selectors.modalGroupListView);
         this.render();
 
@@ -12,7 +12,7 @@ class GroupListView {
         this.settings = settings;
     }
 
-    get selectors() {
+    get selectors () {
         return {
             modalGroupListView: '#group-section',
             addGroupButton: '#add-group',
@@ -22,12 +22,12 @@ class GroupListView {
         };
     }
 
-    activate() {
+    activate () {
         let addGroupButton = document.querySelector(this.selectors.addGroupButton),
             config = document.querySelector(this.selectors.config);
 
         addGroupButton.addEventListener('click', () => {
-            mediator.pub('openAddGroupdDialog');
+            mediator.pub('addGroupdDialog:open');
         });
 
         config.addEventListener('click', () => {
@@ -36,13 +36,13 @@ class GroupListView {
     }
 
 
-    render() {
+    render () {
         let modalGroupListView = tpl.modalGroupListViev;
         this.groupSection.innerHTML = modalGroupListView;
         this.activate();
     }
 
-    clearContainer() {
+    clearContainer () {
         let groupItems = document.querySelectorAll(this.selectors.groupItem);
 
         if (groupItems.length > 0) {

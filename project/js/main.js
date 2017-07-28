@@ -1,6 +1,7 @@
 'use strict';
 
 let App = require('./model/App.js'),
+
     prefilledGroups = require('./prefilledGroups.js'),
     prefilledDirection = require('./prefilledDirection.js');
     

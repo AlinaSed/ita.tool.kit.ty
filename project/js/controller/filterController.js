@@ -11,8 +11,8 @@ class FilterController {
     }
 
     activate() {
-        mediator.sub('groupSelected', this.groupSelectedHandler.bind(this));
-        mediator.sub('renderAddFilterView', this.renderAddFilterViewHandler.bind(this));
+        mediator.sub('group:selected', this.groupSelectedHandler.bind(this));
+        mediator.sub('addFilterView:render', this.renderAddFilterViewHandler.bind(this));
         mediator.sub('filter:added', this.addFilterHandler.bind(this));
     }
 
@@ -21,7 +21,7 @@ class FilterController {
         group.filterList.forEach((filter) => {
             let filterItemView = new FilterItemView(filter);
             filterItemView.render();
-        })
+        });
     }
 
     renderAddFilterViewHandler() {

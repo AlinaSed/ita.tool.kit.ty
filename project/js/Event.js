@@ -1,14 +1,14 @@
 class Observer {
-    constructor(sender) {
+    constructor (sender) {
         this.sender = sender;
         this.listeners = [];
     }
 
-    attach(listener) {
+    attach (listener) {
         this.listeners.push(listener);
     }
 
-    notify(args) {
+    notify (args) {
         let index;
 
         for (index = 0; index < this.listeners.length; index++) {
@@ -16,7 +16,7 @@ class Observer {
         }
     }
 
-    isAttached(listener) {
+    isAttached (listener) {
         let currentListener = this.listeners.find((value) => {
             return value.name == listener.name;
         });

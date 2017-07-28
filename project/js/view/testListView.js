@@ -5,7 +5,7 @@ let tpl = require('./tpl/tplModalSettings.js'),
     TestItemView = require('../view/testItemView.js');
 
 class TestListView {
-    constructor() {
+    constructor () {
         this.selectedGroup = null;
         this.container = document.querySelector(this.selectors.container);
         this.template = tpl.testListView;
@@ -14,14 +14,14 @@ class TestListView {
         this.render();
     }
 
-    get selectors() {
+    get selectors () {
         return {
             container: '#test-section',
             testSection: '#test-list'
         };
     }
 
-    renderTest(group) {
+    renderTest (group) {
         this.selectedGroup = group;
 
         this.selectedGroup.testList.forEach((currentTest) => {
@@ -32,17 +32,17 @@ class TestListView {
         this.activate();
     }
 
-    activate() {
+    activate () {
         if (this.selectedGroup && !this.selectedGroup.testAdded.isAttached(this.addNewExamHandler.bind(this))) {
             this.selectedGroup.testAdded.attach(this.addNewExamHandler.bind(this));
         }
     }
 
-    render() {
+    render () {
         this.container.innerHTML = this.template;
     }
 
-    addNewExamHandler(group, tests) {
+    addNewExamHandler (group, tests) {
         tests.forEach((test) => {
             let view = new TestItemView(test);
             view.render();

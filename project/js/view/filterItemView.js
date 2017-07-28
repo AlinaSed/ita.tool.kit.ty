@@ -4,12 +4,12 @@ let mediator = require('../Mediator.js'),
     tpl = require('./tpl/tplModalSettings.js');
 
 class FilterItemView {
-    constructor(filter) {
+    constructor (filter) {
         this.container = document.querySelector(this.selectors.filterList);
         this.filter = filter;
     }
 
-    get selectors() {
+    get selectors () {
         return {
             rejectedBtn: '.btn-toggle.rejected',
             activeBtn: '.btn-toggle.active',
@@ -17,7 +17,7 @@ class FilterItemView {
         };
     }
 
-    render() {
+    render () {
         let filterTitle = this.filter.filterName + ' ' + this.filter.action.toString() + ' ' + this.filter.condition + ' ' + this.filter.grade + '%',
             filterItemTemplate = document.createElement('div');
 
@@ -26,7 +26,7 @@ class FilterItemView {
         this.container.appendChild(filterItemTemplate);
     }
 
-    activate(template) {
+    activate (template) {
         let activeBtn = template.querySelector(this.selectors.activeBtn),
             rejectedBtn = template.querySelector(this.selectors.rejectedBtn);
 
@@ -39,7 +39,7 @@ class FilterItemView {
         });
     }
 
-    toogleSwithBtn(template, selector) {
+    toogleSwithBtn (template, selector) {
         let buttons = template.querySelectorAll(selector + ' .btn');
 
         buttons.forEach((button) => {

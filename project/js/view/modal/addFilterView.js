@@ -7,11 +7,11 @@ let mediator = require('../../Mediator.js'),
     BaseModalView = require('../../view/modal/baseModalView.js');
 
 class AddFilterView extends BaseModalView {
-    constructor(group) {
+    constructor (group) {
         super(group, tpl.addFilterModal);
     }
 
-    get selectors() {
+    get selectors () {
         return {
             conditionDropDown: '.condition-dropdown',
             actionDropDown: '.action-dropdown',
@@ -23,28 +23,28 @@ class AddFilterView extends BaseModalView {
         };
     }
 
-    collectSelectors() {
+    collectSelectors () {
         this.saveFilterBtn = this.modalContainer.querySelector(this.selectors.saveFilterBtn);
         this.cancelFilterBtn = this.modalContainer.querySelector(this.selectors.cancelFilterBtn);
     }
 
-    initControls() {
+    initControls () {
         this.initTestDropDown();
         this.initActionDrowDown();
         this.initConditionDropDown();
     }
 
-    activate() {
+    activate () {
         this.saveFilterBtn.addEventListener('click', this.saveFilter.bind(this));
         this.cancelFilterBtn.addEventListener('click', this.hide.bind(this));
     }
 
-    diactivate() {
+    diactivate () {
         this.saveFilterBtn.removeEventListener('click', this.saveFilter);
         this.cancelFilterBtn.removeEventListener('click', this.hide);
     }
 
-    saveFilter(event) {
+    saveFilter (event) {
         event.preventDefault();
 
         let conditionDropDownValue = this.getDropDownValue(this.selectors.conditionDropDown),
@@ -66,7 +66,7 @@ class AddFilterView extends BaseModalView {
         this.hide();
     }
 
-    initTestDropDown() {
+    initTestDropDown () {
         let options = '';
         this.testDropDown = this.modalContainer.querySelector(this.selectors.testDropDown);
 
@@ -77,7 +77,7 @@ class AddFilterView extends BaseModalView {
         this.testDropDown.innerHTML = options;
     }
 
-    initActionDrowDown() {
+    initActionDrowDown () {
         let options = '';
         this.actionDropDown = this.modalContainer.querySelector(this.selectors.actionDropDown);
 
@@ -88,7 +88,7 @@ class AddFilterView extends BaseModalView {
         this.actionDropDown.innerHTML = options;
     }
 
-    initConditionDropDown() {
+    initConditionDropDown () {
         let options = '';
         this.conditionDropDown = this.modalContainer.querySelector(this.selectors.conditionDropDown);
 

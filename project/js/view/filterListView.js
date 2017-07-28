@@ -4,14 +4,14 @@ let mediator = require('../Mediator.js'),
     tpl = require('./tpl/tplModalSettings.js');
 
 class FilterListView {
-    constructor() {
+    constructor () {
         this.selectedGroup = null;
         this.filterSection = document.querySelector(this.selectors.filterSection);
         this.render();
         this.addFilterBtn = this.filterSection.querySelector(this.selectors.addFilterBtn);
     }
 
-    get selectors() {
+    get selectors () {
         return {
             filterSection: '#filter-section',
             addFilterBtn: '.add-custom-filter',
@@ -19,23 +19,23 @@ class FilterListView {
         };
     }
 
-    activate() {
+    activate () {
         let addFilterBtn = document.querySelector(this.selectors.addFilterBtn);
 
-        mediator.sub('groupSelected', this.clearFilterListHandler.bind(this))
+        mediator.sub('group:selected', this.clearFilterListHandler.bind(this));
 
         addFilterBtn.addEventListener('click', () => {
-            mediator.pub('renderAddFilterView');
-        })
+            mediator.pub('addFilterView:render');
+        });
     }
 
-    render() {
+    render () {
         this.filterSection.innerHTML = tpl.filterSection;
 
         this.activate();
     }
 
-    clearFilterListHandler(group) {
+    clearFilterListHandler (group) {
         this.selectedGroup = group;
         this.addFilterBtn.classList.add('show');
         document.querySelector(this.selectors.filterList).innerHTML = '';

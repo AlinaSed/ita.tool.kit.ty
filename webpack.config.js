@@ -4,14 +4,14 @@ let webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-	entry: ['./build/main.js', './project/scss/style.scss'],
-	output: {
-		filename: 'build.js',
+    entry: ['./build/main.js', './project/scss/style.scss'],
+    output: {
+        filename: 'build.js',
         //absolute path
         path: __dirname + '/build',
         //global variable
         library: 'app' 
-	},
+    },
 
     /* a source map consists of a whole bunch of information that can
      be used to map the code within a compressed file back to it’s original source */
@@ -19,9 +19,9 @@ module.exports = {
 
     watch: true,
 
-	watchOptions: {
-		aggregateTimeout: 100
-	},
+    watchOptions: {
+        aggregateTimeout: 100
+    },
 
     /*Webpack 2 has a very strict configuration--
     that was moved to the plugins section using the webpack.LoaderOptionsPlugin */
@@ -44,9 +44,8 @@ module.exports = {
 
  /*   
 //minification
-
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
         compress: {
           // don't show unreachable variables etc
           warnings:     false,
@@ -54,8 +53,7 @@ module.exports = {
           unsafe:       true
         }
       })
-	],
-
+    ],
     */
 
     module: {
@@ -88,5 +86,4 @@ module.exports = {
 
        ]
     }
- 
 }
