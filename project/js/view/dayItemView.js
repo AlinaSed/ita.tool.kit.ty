@@ -34,6 +34,15 @@ class DayItemView {
         }
 
         slotContainer.insertAdjacentHTML ('afterend', btn);
+
+        this.activate();
+    }
+
+    activate () {
+        let buttonOpen = this.container.querySelector('.time-slot');
+        buttonOpen.addEventListener('click', () => {
+            mediator.pub('assignPeople:open');
+        });
     }
 
     selectGroupForDay () {
