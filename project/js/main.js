@@ -1,10 +1,10 @@
 'use strict';
 
 let App = require('./model/App.js'),
+
     prefilledGroups = require('./prefilledGroups.js'),
     prefilledDirection = require('./prefilledDirection.js');
     
-
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init() {
@@ -14,7 +14,5 @@ function init() {
 
     app.start();
 }
-
-
 
 module.exports = init;

@@ -1,30 +1,23 @@
 'use strict';
 
 let Person = require('../model/Person.js'),
-    PeopleAsignView = require('../view/asignPeopleView.js'), 
-    ResultView = require('../view/resultView.js'),
+    ResultPeopleView = require('../view/resultPeopleView.js'),
+    ResultTestsView = require('../view/resultTestsView.js'),
     mediator = require('../Mediator.js');
 
-class PeopleController {
+class ResultController {
 	constructor () {
         this.activate();
 	}
 
 	activate () {
-		mediator.sub('assignPeople:open', this.openAssignPeople.bind(this));
         mediator.sub('assignPeople:saved', this.generatePeopleInfo.bind(this));
-	}
-
-	openAssignPeople () {
-		let peopleAsignView = new PeopleAsignView();
-        
-        peopleAsignView.show();
+        mediator.sub('assignTests:saved', this.generateTestsInfo.bind(this));
 	}
 
     generatePeopleInfo (listOfPeople) {
         let arrayOfPeople = listOfPeople.match(/[^\n]+/g),
             people = [];
-
             
         arrayOfPeople.forEach((user) => {
             let arrayOfPerson = user.split(' '),
@@ -40,7 +33,7 @@ class PeopleController {
             people.push(person);
         });
 
-        this.showResult(people);
+        this.showResultPeople(people);
     }
 
     checkNameOrSurname (name) {
@@ -55,9 +48,37 @@ class PeopleController {
         return validationEmail.test(email);
     }
 
-    showResult (people) {
-        let resultView = new ResultView(people); 
+    showResultPeople (people) {
+        let resultPeopleView = new ResultPeopleView(people); 
+    }
+
+    generateTestsInfo (info) {
+        let arrayOfPeople = info.match(/[^\n]+/g),
+            people = [];
+
+            
+        arrayOfPeople.forEach((user) => {
+            let arrayOfPerson = user.split(' '),
+                personOfObj = {};
+
+            personOfObj.surname = arrayOfPerson[0];
+            personOfObj.name = arrayOfPerson[1];
+            personOfObj.institution = arrayOfPerson[2];
+            personOfObj.department = arrayOfPerson[3];
+            personOfObj.email = arrayOfPerson[4];
+            personOfObj.state = arrayOfPerson[5];
+            personOfObj.startedOn = arrayOfPerson[6];
+            personOfObj.completed = arrayOfPerson[7];
+       
+            people.push(personOfObj);
+        });
+
+        this.showTestsResult(people);
+    }
+
+    showTestsResult (people) {
+        let resultTestsView = new ResultTestsView(people); 
     }
 }
 
-module.exports = PeopleController;
+module.exports = ResultController;
