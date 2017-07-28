@@ -10,7 +10,6 @@ let Settings = require('./Settings.js'),
     FilterController = require('../controller/filterController.js'),
     TestListView = require('../view/testListView.js'),
     mediator = require('../Mediator.js'),
-    PeopleView = require('../view/PeopleView.js'),
     ResultController = require('../controller/resultController.js');
 
 class App {
@@ -32,8 +31,7 @@ class App {
             testListView = new TestListView(),
             testListController = new TestListController(testListView),
             settingsController = new SettingsController(this.settings),
-            resultController = new ResultController(),
-            peopleView = new PeopleView();
+            resultController = new ResultController();
 
         groupController.renderGroupList();
         this.activate();
