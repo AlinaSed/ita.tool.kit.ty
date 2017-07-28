@@ -10,9 +10,12 @@ let settingsFilters = (filterList) => {
             <ul class="t-f-list">
                 ${tpl}
             </ul>
-            <i class="fa fa-plus-circle add-filter" aria-hidden="true"></i>
+            <button class="add-filter">Add filter </button>
         </div>
     `; 
 };
 
 module.exports = settingsFilters;
+
+
+/*<i class="fa fa-plus-circle add-filter" aria-hidden="true"></i>*/

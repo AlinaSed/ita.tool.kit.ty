@@ -16,6 +16,7 @@ class SettingsAddFilterView {
         let testListContainer,
             testListForFilter = [],
             selectedTestsContainer,
+            filterNameInput,
             actionSelect,
             conditionSelect,
             gradeInput,
@@ -24,6 +25,7 @@ class SettingsAddFilterView {
         this.modalContainer.innerHTML = tplSettings.addFilter(direction);
         testListContainer = this.modalContainer.querySelector('.tests-for-filter');
         selectedTestsContainer = this.modalContainer.querySelector('.selected-tests');
+        filterNameInput = this.modalContainer.querySelector('.new-filter-name');
         actionSelect = this.modalContainer.querySelector('.filter-action');
         conditionSelect = this.modalContainer.querySelector('.filter-condition');
         gradeInput = this.modalContainer.querySelector('.filter-grade');
@@ -40,13 +42,14 @@ class SettingsAddFilterView {
         }, false);
 
         saveFilterButton.addEventListener('click', () => {
-            let action, condition, grade;
+            let filterName, action, condition, grade;
 
+            filterName = filterNameInput.value;
             action = actionSelect.options[actionSelect.selectedIndex].value;
             condition = conditionSelect.options[conditionSelect.selectedIndex].value;
             grade = gradeInput.value;
 
-            direction.addFilter(testListForFilter, action, condition, grade);
+            direction.addFilter(testListForFilter, action, condition, grade, filterName);
             mediator.pub('filter:created');
         }, false);
     }
