@@ -37,7 +37,7 @@ class ResultController {
     }
 
     checkNameOrSurname (name) {
-        let validationNameOrSurname = /([a-zA-Z ]){2,30}/;
+        let validationNameOrSurname = /([a-zA-Z]){2,30}/;
 
         return validationNameOrSurname.test(name);
     }
