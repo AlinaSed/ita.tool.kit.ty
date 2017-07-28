@@ -2,7 +2,7 @@
 
 class Filter {
     constructor (tests, action, condition, grade, name) {
-		this.filterName = name;
+        this.filterName = name;
         this.tests = tests;
         this.action = action;
         this.condition = condition;
@@ -10,7 +10,7 @@ class Filter {
     }
 
     get name () {
-        return `${this.action} ${this.condition} ${this.grade}`;
+        return `${this.filterName} ${this.action} ${this.condition} ${this.grade}`;
     }
 }
 

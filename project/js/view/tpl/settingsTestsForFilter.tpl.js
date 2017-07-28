@@ -3,10 +3,10 @@
 let settingsTestsForFilter = (testList) => {
     let tpl = '';
    
-    testList.forEach((test) => tpl += `<div>${test.name}</div>`);
+    testList.forEach((test) => tpl += `<div class="test-for-filter">${test.name}</div>`);
     
     return `
-        <div class="tests-for-filter wrapper-list">
+        <div class="tests-for-filter">
             ${tpl}
         </div>
     `; 

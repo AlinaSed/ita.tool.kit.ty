@@ -15,6 +15,7 @@ let settingsAddFilter = (direction) => {
             </div>
             <div class="add-filter-containerA tests-container">
                 <input type="text" class="new-filter-name" placeholder="New filter name" size="10">
+                <p> Selected tests: </p>
                 <ul class="selected-tests"></ul>
             </div>
             <div class="add-filter-containerA tests-container">
@@ -24,9 +25,9 @@ let settingsAddFilter = (direction) => {
                     <option value="EQUAL"> equal </option>
                 </select>
                 <select class="filter-condition">
-                    <option selected value="greater"> greater </option>
-                    <option value="less"> less </option>
-                    <option value="equal"> equal </option>
+                    <option selected value=">"> greater </option>
+                    <option value="<"> less </option>
+                    <option value="="> equal </option>
                 </select>
                 <input type="text" class="filter-grade" placeholder="Grade" size="2">
                 <button class="save-new-filter">save</button>
