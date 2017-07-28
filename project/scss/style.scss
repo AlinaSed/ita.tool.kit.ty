@@ -153,7 +153,7 @@ footer img {
     background: #fff;
 }
 
-#shadow {
+.shadow {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -235,18 +235,6 @@ footer img {
     position: absolute;
     top: 2%;
     right: 2%;
-}
-.add-filter, .add-test{
-    font-size: 33px;
-    position: absolute;
-    left: -7%;
-    bottom: -34%;
-}
-.add-test{
-    font-size: 33px;
-    position: absolute;
-    left: -7%;
-    bottom: -14%;
 }
 
 .wrapper-list{
@@ -409,4 +397,38 @@ th, td {
     border-color: #2e6da4;
 }
 
+/* SETTINGS */
+
+.add-filter-containerA {
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+    vertical-align: top;
+}
+
+.settings-main-item {
+
+}
+
+.selected-tests {
+    list-style-type: none;
+}
+
+.test-for-filter {
+    background: #E9E4E0;
+    padding: 3px;
+    margin-top: 2px;
+    vertical-align: top;
+}
+
+.test-for-filter:hover {
+    background: #9ac5cc;
+    font-weight: bold;
+    color:blue;
+}
+
+.settings-add-filter {
+    margin-top: 10px;
+    vertical-align: top;
+}
 

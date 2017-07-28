@@ -8,7 +8,7 @@ class SettingsController {
     constructor (settings) {
 
         // do I need this line?
-        this.settings = settings;
+      //  this.settings = settings;
         this.view = new SettingsView(settings);
         
         this.activate();
